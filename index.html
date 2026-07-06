@@ -3,725 +3,665 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>狮丹努第一分公司 · 2026年H1全面分析 + H2工作部署</title>
+<title>狮丹努第一分公司 · 2026年6月月度分析 + 7–12月工作指导</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0d1017;--bg2:#161b27;--bg3:#1e2435;--bg4:#252d42;--bg5:#2e3750;--ln:rgba(255,255,255,0.06);--ln2:rgba(255,255,255,0.11);--ln3:rgba(255,255,255,0.18);--fg:#dde3f0;--fg2:#9099b3;--fg3:#5a6282;--fg4:#363d55;--c3:#5b9fff;--c3b:rgba(91,159,255,0.12);--c31:#2dd4aa;--c31b:rgba(45,212,170,0.12);--c4:#fdb94a;--c4b:rgba(253,185,74,0.12);--c26:#f06080;--c26b:rgba(240,96,128,0.12);--cx:#b48fff;--cxb:rgba(180,143,255,0.12);--pos:#2dd4aa;--neg:#f06080;--warn:#fdb94a;--info:#5b9fff;--gold:#c9a84c}
+:root{
+  --bg:#0d1017;--bg2:#161b27;--bg3:#1e2435;--bg4:#252d42;--bg5:#2e3750;
+  --ln:rgba(255,255,255,0.06);--ln2:rgba(255,255,255,0.12);--ln3:rgba(255,255,255,0.20);
+  --fg:#dde3f0;--fg2:#9099b3;--fg3:#5a6282;--fg4:#363d55;
+  --c3:#5b9fff;--c3b:rgba(91,159,255,0.12);
+  --c31:#2dd4aa;--c31b:rgba(45,212,170,0.12);
+  --c4:#fdb94a;--c4b:rgba(253,185,74,0.12);
+  --c26:#f06080;--c26b:rgba(240,96,128,0.12);
+  --cx:#b48fff;--gold:#c9a84c;
+  --pos:#2dd4aa;--neg:#f06080;--warn:#fdb94a;--info:#5b9fff;
+}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--fg);font-family:"Noto Sans SC",sans-serif;font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased}
-.hero{background:var(--bg2);border-bottom:1px solid var(--ln2);padding:52px 64px 44px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 900px 400px at 90% 50%,rgba(91,159,255,0.06),transparent 70%);pointer-events:none}
-.hero::after{content:"H1";position:absolute;right:32px;bottom:-40px;font-family:"Noto Serif SC",serif;font-size:220px;font-weight:900;color:rgba(255,255,255,0.022);line-height:1;pointer-events:none;letter-spacing:-12px}
-.eye{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2.5px;color:var(--c3);text-transform:uppercase;margin-bottom:14px}
-.hero h1{font-family:"Noto Serif SC",serif;font-size:32px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:8px}
-.hero-desc{font-size:13px;color:var(--fg2);max-width:720px;line-height:1.7}
-.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
-.chip{font-family:"DM Mono",monospace;font-size:11px;padding:4px 12px;border-radius:20px;background:var(--bg3);border:1px solid var(--ln2);color:var(--fg2)}
-.chip.hi{background:var(--c3b);border-color:rgba(91,159,255,.3);color:var(--c3)}
+body{background:var(--bg);color:var(--fg);font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased}
+
+/* HERO */
+.hero{background:var(--bg2);border-bottom:1px solid var(--ln2);padding:48px 64px 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 350px at 85% 50%,rgba(91,159,255,0.07),transparent 70%);pointer-events:none}
+.hero::after{content:'6月';position:absolute;right:32px;bottom:-30px;font-family:'Noto Serif SC',serif;font-size:200px;font-weight:900;color:rgba(255,255,255,0.025);line-height:1;pointer-events:none}
+.eye{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2.5px;color:var(--c3);text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-family:'Noto Serif SC',serif;font-size:28px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:8px}
+.hero-desc{font-size:13px;color:var(--fg2);max-width:700px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.chip{font-family:'DM Mono',monospace;font-size:11px;padding:3px 11px;border-radius:20px;background:var(--bg3);border:1px solid var(--ln2);color:var(--fg2)}
 .chip.ok{background:rgba(45,212,170,.1);border-color:rgba(45,212,170,.3);color:var(--pos)}
 .chip.warn{background:rgba(253,185,74,.1);border-color:rgba(253,185,74,.3);color:var(--warn)}
+.chip.neg{background:rgba(240,96,128,.1);border-color:rgba(240,96,128,.3);color:var(--neg)}
+.chip.hi{background:var(--c3b);border-color:rgba(91,159,255,.3);color:var(--c3)}
+
+/* NAV */
 nav{background:var(--bg2);border-bottom:1px solid var(--ln);padding:0 64px;display:flex;position:sticky;top:0;z-index:200;overflow-x:auto}
-nav a{display:block;padding:13px 15px;font-size:12px;color:var(--fg3);text-decoration:none;border-bottom:2px solid transparent;transition:.2s;white-space:nowrap}
-nav a:hover{color:var(--fg2)}nav a.on{color:var(--c3);border-bottom-color:var(--c3)}
+nav a{display:block;padding:12px 14px;font-size:12px;color:var(--fg3);text-decoration:none;border-bottom:2px solid transparent;transition:.2s;white-space:nowrap}
+nav a.on{color:var(--c3);border-bottom-color:var(--c3)}nav a:hover{color:var(--fg2)}
+
+/* LAYOUT */
 .wrap{max-width:1200px;margin:0 auto;padding:0 64px}
-section{padding:52px 0;border-bottom:1px solid var(--ln)}
-.sh{margin-bottom:28px}
-.sn{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;color:var(--c3);margin-bottom:8px;text-transform:uppercase}
-.st{font-family:"Noto Serif SC",serif;font-size:22px;font-weight:600;color:#fff;margin-bottom:6px}
-.sd{font-size:13px;color:var(--fg2);line-height:1.65;padding:12px 16px;background:var(--bg3);border-left:3px solid var(--c3);border-radius:0 6px 6px 0;margin-top:10px}
-.kg4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
-.kg2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
-.kg3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
-.kc{background:var(--bg3);border:1px solid var(--ln);border-radius:10px;padding:18px 20px;position:relative;overflow:hidden;transition:.2s}
+section{padding:48px 0;border-bottom:1px solid var(--ln)}
+.sh{margin-bottom:24px}
+.sn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--c3);margin-bottom:7px;text-transform:uppercase}
+.st{font-family:'Noto Serif SC',serif;font-size:21px;font-weight:600;color:#fff;margin-bottom:5px}
+.sd{font-size:13px;color:var(--fg2);line-height:1.65;padding:11px 15px;background:var(--bg3);border-left:3px solid var(--c3);border-radius:0 6px 6px 0;margin-top:10px}
+
+/* ALERT BANNER */
+.alert{padding:14px 20px;border-radius:8px;border:1px solid;margin-bottom:16px;display:flex;align-items:flex-start;gap:12px}
+.alert.h{background:rgba(240,96,128,.06);border-color:rgba(240,96,128,.25)}
+.alert.m{background:rgba(253,185,74,.06);border-color:rgba(253,185,74,.25)}
+.alert.ok{background:rgba(45,212,170,.06);border-color:rgba(45,212,170,.25)}
+.alert-icon{font-size:18px;flex-shrink:0;line-height:1.4}
+.alert-body{font-size:13px;line-height:1.7}
+.alert-title{font-weight:600;color:#fff;margin-bottom:4px}
+.alert.h .alert-title{color:var(--neg)}.alert.m .alert-title{color:var(--warn)}.alert.ok .alert-title{color:var(--pos)}
+.alert-text{color:var(--fg2)}
+
+/* KPI */
+.kg4{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:18px}
+.kg2{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-bottom:18px}
+.kc{background:var(--bg3);border:1px solid var(--ln);border-radius:10px;padding:17px 19px;position:relative;overflow:hidden;transition:.2s}
 .kc:hover{border-color:var(--ln2)}
-.kc::before{content:"";position:absolute;top:0;left:0;right:0;height:2px}
-.kc.c3::before{background:var(--c3)}.kc.c31::before{background:var(--c31)}.kc.c4::before{background:var(--c4)}.kc.c26::before{background:var(--c26)}.kc.cx::before{background:var(--cx)}.kc.gold::before{background:var(--gold)}.kc.neg::before{background:var(--neg)}
+.kc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.kc.c3::before{background:var(--c3)}.kc.c31::before{background:var(--c31)}.kc.c4::before{background:var(--c4)}.kc.c26::before{background:var(--c26)}.kc.cx::before{background:var(--cx)}.kc.gold::before{background:var(--gold)}.kc.neg::before{background:var(--neg)}.kc.warn::before{background:var(--warn)}
 .kl{font-size:11px;color:var(--fg2);margin-bottom:5px;letter-spacing:.3px}
-.kv{font-family:"DM Mono",monospace;font-size:26px;font-weight:500;color:#fff;line-height:1.1}
-.ku{font-size:12px;color:var(--fg3);margin-left:3px}
+.kv{font-family:'DM Mono',monospace;font-size:24px;font-weight:500;color:#fff;line-height:1.1}
+.ku{font-size:12px;color:var(--fg3);margin-left:2px}
 .kd{font-size:12px;margin-top:4px}.kd.pos{color:var(--pos)}.kd.neg{color:var(--neg)}.kd.warn{color:var(--warn)}.kd.neu{color:var(--fg3)}
 .ks{font-size:11px;color:var(--fg3);margin-top:2px}
-.gauge-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
-.gc{background:var(--bg3);border:1px solid var(--ln);border-radius:10px;padding:20px;text-align:center}
-.glb{font-size:12px;color:var(--fg2);margin-bottom:13px;display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* GAUGE */
+.gauge-row{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:18px}
+.gc{background:var(--bg3);border:1px solid var(--ln);border-radius:10px;padding:18px;text-align:center}
+.glb{font-size:12px;color:var(--fg2);margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:6px}
 .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .gw{position:relative;width:130px;height:75px;margin:0 auto 8px}
 .gw svg{width:130px;height:75px}
-.gp{position:absolute;bottom:0;left:50%;transform:translateX(-50%);font-family:"DM Mono",monospace;font-size:20px;font-weight:500}
+.gp{position:absolute;bottom:0;left:50%;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:20px;font-weight:500}
 .gs{font-size:11px;color:var(--fg3);margin-top:4px}
 .gtag{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;margin-top:5px;letter-spacing:.5px}
 .gtag.ok{background:rgba(45,212,170,.1);color:var(--pos)}.gtag.warn{background:rgba(253,185,74,.1);color:var(--warn)}.gtag.bad{background:rgba(240,96,128,.1);color:var(--neg)}
-.tw{overflow-x:auto;border-radius:10px;border:1px solid var(--ln);margin-bottom:20px}
+
+/* TABLE */
+.tw{overflow-x:auto;border-radius:10px;border:1px solid var(--ln);margin-bottom:18px}
 table{width:100%;border-collapse:collapse;font-size:12.5px}
 thead th{background:var(--bg3);padding:9px 13px;text-align:right;font-size:11px;color:var(--fg2);font-weight:500;border-bottom:1px solid var(--ln);white-space:nowrap}
 thead th:first-child{text-align:left}
-tbody td{padding:8px 13px;text-align:right;border-bottom:1px solid var(--ln);font-family:"DM Mono",monospace;font-size:12px;color:var(--fg)}
-tbody td:first-child{text-align:left;font-family:"Noto Sans SC",sans-serif;font-size:12.5px}
+tbody td{padding:8px 13px;text-align:right;border-bottom:1px solid var(--ln);font-family:'DM Mono',monospace;font-size:12px;color:var(--fg)}
+tbody td:first-child{text-align:left;font-family:'Noto Sans SC',sans-serif;font-size:12.5px}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover td{background:rgba(255,255,255,.02)}
 .tr-total td{background:var(--bg4)!important;font-weight:600;border-top:1px solid var(--ln2)}
-.tr-q{background:rgba(91,159,255,.04)!important}
+.tr-h{background:rgba(91,159,255,.04)!important}
 .pos-c{color:var(--pos)!important}.neg-c{color:var(--neg)!important}.warn-c{color:var(--warn)!important}.neu-c{color:var(--fg3)!important}
+.badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:4px;font-weight:600;vertical-align:middle;margin-left:4px}
+.badge.pos{background:rgba(45,212,170,.12);color:var(--pos)}.badge.neg{background:rgba(240,96,128,.12);color:var(--neg)}.badge.warn{background:rgba(253,185,74,.12);color:var(--warn)}
+
+/* CHARTS */
 .cw{background:var(--bg3);border:1px solid var(--ln);border-radius:10px;padding:20px;margin-bottom:16px}
-.ct{font-size:13px;color:var(--fg2);margin-bottom:14px;font-weight:500}
-.cl{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:12px}
+.ct{font-size:13px;color:var(--fg2);margin-bottom:13px;font-weight:500}
+.cl{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px}
 .cli{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--fg2)}
 .cld{width:10px;height:10px;border-radius:2px}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
-.dh{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg3);border-radius:10px;border:1px solid var(--ln);margin-bottom:18px}
-.dbadge{font-family:"DM Mono",monospace;font-size:10px;font-weight:500;padding:4px 11px;border-radius:20px;letter-spacing:.5px}
-.dbadge.c3{background:var(--c3b);color:var(--c3);border:1px solid rgba(91,159,255,.3)}
-.dbadge.c31{background:var(--c31b);color:var(--c31);border:1px solid rgba(45,212,170,.3)}
-.dbadge.c4{background:var(--c4b);color:var(--c4);border:1px solid rgba(253,185,74,.3)}
-.dbadge.c26{background:var(--c26b);color:var(--c26);border:1px solid rgba(240,96,128,.3)}
-.dn{font-size:16px;font-weight:600;color:#fff}.dm{font-size:12px;color:var(--fg2)}
-.dtr{margin-left:auto;text-align:right}.dtrl{font-size:11px;color:var(--fg3)}.dtrv{font-family:"DM Mono",monospace;font-size:17px;font-weight:500}
-.pb-item{margin-bottom:12px}
-.pb-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
-.pb-label span:first-child{color:var(--fg2)}.pb-label span:last-child{font-family:"DM Mono",monospace;color:var(--fg)}
+
+/* PLAN GRID */
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.plan-grid-2{grid-template-columns:repeat(2,1fr)}
+.pc{background:var(--bg3);border:1px solid var(--ln);border-radius:10px;padding:17px 17px 14px}
+.pp{font-family:'DM Mono',monospace;font-size:10px;color:var(--fg3);letter-spacing:1px;margin-bottom:5px;text-transform:uppercase}
+.pt{font-size:13px;font-weight:600;color:#fff;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--ln)}
+.pi{font-size:12px;color:var(--fg2);padding:3px 0 3px 13px;border-left:2px solid var(--ln2);margin-bottom:5px;line-height:1.6}
+.pi.hi{border-left-color:var(--c3);color:var(--fg)}.pi.ok{border-left-color:var(--pos)}.pi.warn{border-left-color:var(--warn)}.pi.bad{border-left-color:var(--neg)}
+
+/* DEPT HEADER */
+.dh{display:flex;align-items:center;gap:13px;padding:14px 18px;background:var(--bg3);border-radius:10px;border:1px solid var(--ln);margin-bottom:16px}
+.db{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;padding:4px 10px;border-radius:20px;letter-spacing:.5px}
+.db.c3{background:var(--c3b);color:var(--c3);border:1px solid rgba(91,159,255,.3)}
+.db.c31{background:var(--c31b);color:var(--c31);border:1px solid rgba(45,212,170,.3)}
+.db.c4{background:var(--c4b);color:var(--c4);border:1px solid rgba(253,185,74,.3)}
+.db.c26{background:var(--c26b);color:var(--c26);border:1px solid rgba(240,96,128,.3)}
+.dn{font-size:15px;font-weight:600;color:#fff}.dm{font-size:12px;color:var(--fg2)}
+.dtr{margin-left:auto;text-align:right}
+.dtrl{font-size:11px;color:var(--fg3)}
+.dtrv{font-family:'DM Mono',monospace;font-size:15px;font-weight:500}
+
+/* PROGRESS */
+.pb-item{margin-bottom:11px}
+.pb-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px}
+.pb-label span:first-child{color:var(--fg2)}.pb-label span:last-child{font-family:'DM Mono',monospace;color:var(--fg)}
 .pb-track{height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
 .pb-fill{height:100%;border-radius:3px}
-.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
-.pc{background:var(--bg3);border:1px solid var(--ln);border-radius:10px;padding:18px 18px 15px}
-.pp{font-family:"DM Mono",monospace;font-size:10px;color:var(--fg3);letter-spacing:1px;margin-bottom:5px;text-transform:uppercase}
-.pt{font-size:13px;font-weight:600;color:#fff;margin-bottom:11px;padding-bottom:9px;border-bottom:1px solid var(--ln)}
-.pi{font-size:12px;color:var(--fg2);padding:4px 0 4px 13px;border-left:2px solid var(--ln2);margin-bottom:6px;line-height:1.6}
-.pi.hi{border-left-color:var(--c3);color:var(--fg)}.pi.ok{border-left-color:var(--pos)}.pi.warn{border-left-color:var(--warn)}.pi.bad{border-left-color:var(--neg)}
-.rg{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
-.rc{border-radius:10px;padding:16px 18px;border:1px solid}
-.rc.h{background:rgba(240,96,128,.05);border-color:rgba(240,96,128,.2)}
-.rc.m{background:rgba(253,185,74,.05);border-color:rgba(253,185,74,.2)}
-.rc.l{background:rgba(45,212,170,.05);border-color:rgba(45,212,170,.2)}
-.rc.i{background:rgba(91,159,255,.05);border-color:rgba(91,159,255,.2)}
-.rtag{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-.rc.h .rtag{color:var(--neg)}.rc.m .rtag{color:var(--warn)}.rc.l .rtag{color:var(--pos)}.rc.i .rtag{color:var(--info)}
-.rtit{font-size:13px;font-weight:600;color:#fff;margin-bottom:6px}
-.rbody{font-size:12px;color:var(--fg2);line-height:1.65}
-.conclusion{background:var(--bg3);border:1px solid var(--ln2);border-radius:12px;padding:28px 32px;margin-top:28px}
-.conclusion h3{font-family:"Noto Serif SC",serif;font-size:18px;font-weight:600;color:#fff;margin-bottom:16px}
-.conclusion p{font-size:13px;color:var(--fg2);line-height:2;margin-bottom:12px}
-.conclusion p:last-child{margin-bottom:0}
+
+hr.dv{border:none;border-top:1px solid var(--ln);margin:22px 0}
 em.pos{font-style:normal;color:var(--pos);font-weight:500}
 em.neg{font-style:normal;color:var(--neg);font-weight:500}
 em.warn{font-style:normal;color:var(--warn);font-weight:500}
 em.hi{font-style:normal;color:#fff;font-weight:500}
-hr.dv{border:none;border-top:1px solid var(--ln);margin:24px 0}
-.source-note{font-size:11px;color:var(--fg3);padding:8px 12px;background:var(--bg3);border-radius:6px;margin-bottom:20px;border-left:2px solid var(--fg4)}
-footer{padding:28px 64px;text-align:center;font-size:11px;font-family:"DM Mono",monospace;color:var(--fg3);border-top:1px solid var(--ln)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+footer{padding:24px 64px;text-align:center;font-size:11px;font-family:'DM Mono',monospace;color:var(--fg3);border-top:1px solid var(--ln)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 section{animation:fadeUp .45s ease both}
-@media(max-width:900px){.hero,.wrap,nav,footer{padding-left:22px;padding-right:22px}.kg4,.gauge-row,.plan-grid,.rg{grid-template-columns:repeat(2,1fr)}.g2,.kg2{grid-template-columns:1fr}}
-@media(max-width:580px){.kg4,.gauge-row,.plan-grid,.rg{grid-template-columns:1fr}}
-.h2-month-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
-.hmc{background:var(--bg3);border:1px solid var(--ln);border-radius:8px;padding:14px 16px}
-.hm-month{font-size:11px;color:var(--fg3);font-family:"DM Mono",monospace;margin-bottom:4px}
-.hm-theme{font-size:13px;font-weight:600;color:#fff;margin-bottom:8px}
-.hm-item{font-size:11px;color:var(--fg2);padding:3px 0 3px 10px;border-left:2px solid var(--ln2);margin-bottom:4px;line-height:1.5}
-.hm-item.ok{border-left-color:var(--pos)}.hm-item.warn{border-left-color:var(--warn)}.hm-item.bad{border-left-color:var(--neg)}.hm-item.hi{border-left-color:var(--c3);color:var(--fg)}
+@media(max-width:900px){.hero,.wrap,nav,footer{padding-left:22px;padding-right:22px}.kg4,.gauge-row,.plan-grid{grid-template-columns:repeat(2,1fr)}.g2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <div class="hero">
-<div class="eye">宁波狮丹努进出口有限公司第一分公司 · 内部管理报告 2026</div>
-<h1>上半年全面分析与下半年工作部署<br><span style="font-size:20px;color:var(--fg2)">Q1 · Q2 · H1总结 · H2计划</span></h1>
-<div class="hero-desc">数据来源：维度总表0530（截至8月）+ 0429 + 0326 · 5月财务报表（实拍）· 2025全年对标<br>数据截至2026年8月，结合4月20日工作会议精神，系统分析Q1/Q2表现并制定H2工作计划</div>
-<div class="chips">
-<span class="chip hi">H1销售 19,991万元</span>
-<span class="chip ok">H1同比 +10.0%</span>
-<span class="chip hi">1–8月累计 28,207万元</span>
-<span class="chip hi">1–8月创汇 4,044万$</span>
-<span class="chip warn">H2剩余缺口 1,205万$</span>
-<span class="chip">49人 · 三部15 · 31部10.5 · 四部12.1 · 26部11.5</span>
-</div>
+  <div class="eye">宁波狮丹努进出口有限公司第一分公司 · 月度分析报告</div>
+  <h1>2026年6月销售利润分析<br><span style="font-size:18px;color:var(--fg2)">+ 维度表0701（1–10月）全年进度研判 + 11–12月工作指导</span></h1>
+  <div class="hero-desc">数据来源：2026年6月销售利润情况表（实拍）· 维度总表0701（含1–10月数据）· 2025年同期对标</div>
+  <div class="chips">
+    <span class="chip hi">6月全楼销售 4,255万</span>
+    <span class="chip ok">1–10月销售 32,829万 · 完成90.2%</span>
+    <span class="chip ok">1–10月创汇 4,717万$ · 完成89.8%</span>
+    <span class="chip warn">四部6月利润率 −1.69% ⚠</span>
+    <span class="chip ok">四部+26部已超额完成全年目标</span>
+  </div>
 </div>
 
 <nav>
-<a href="#overview" class="on">01 整体总览</a>
-<a href="#q1">02 Q1总结</a>
-<a href="#q2">03 Q2复盘</a>
-<a href="#h1">04 H1全景</a>
-<a href="#profit">05 利润分析</a>
-<a href="#dept">06 部门详解</a>
-<a href="#client">07 客户拆解</a>
-<a href="#h2">08 H2部署</a>
-<a href="#risk">09 风险结论</a>
+  <a href="#jun" class="on">01 6月分析</a>
+  <a href="#gauge">02 全年进度</a>
+  <a href="#h2">03 7–10月复盘</a>
+  <a href="#dept">04 部门详解</a>
+  <a href="#client">05 客户进度</a>
+  <a href="#q4plan">06 11–12月部署</a>
+  <a href="#outlook">07 全年展望</a>
 </nav>
 
 <div class="wrap">
 
-<!-- 01 OVERVIEW -->
-<section id="overview">
-<div class="sh"><div class="sn">01 · OVERVIEW</div><div class="st">2026年整体经营总览（截至8月）</div>
-<div class="sd">1–8月全楼累计销售<em class="hi">28,207万元</em>，同比2025年同期（23,470万元）<em class="pos">+20.2%</em>；累计创汇<em class="hi">4,044万美元</em>，完成全年官方目标（5,250万）的<em class="pos">77.0%</em>。四部（+18.6%）和26部（+65.9%）强势领跑，三部（+1.5%）和31部（+22.4%）在8月出现改善迹象。全年完成率整体乐观，<em class="warn">三部和31部是决定全年能否达标的关键变量</em>。</div></div>
+<!-- ══ 01 JUN ══ -->
+<section id="jun">
+<div class="sh">
+  <div class="sn">01 · JUNE ANALYSIS</div>
+  <div class="st">2026年6月单月深析</div>
+  <div class="sd">6月全楼销售<em class="hi">4,255万元</em>，同比+8%，创汇630万美元。26部旺季延续（1,737万），31部毛利率19.21%创年内最高。但<em class="neg">四部6月利润率再度为负（−1.69%）</em>，1–6月累计利润仅221万，毛利率12.79%全楼最低，Big W/Auchan商超结构性低利润问题亟需系统性应对。</div>
+</div>
 
-<div class="kg4">
-<div class="kc cx"><div class="kl">1–8月累计销售</div><div class="kv">28,207<span class="ku">万元</span></div><div class="kd pos">↑ +20.2% vs 25年同期（23,470万）</div><div class="ks">全年目标36,400万 · 完成77.5%</div></div>
-<div class="kc cx"><div class="kv">4,044<span class="ku">万$</span></div><div class="kl">1–8月累计创汇</div><div class="kd pos">↑ +21.7% vs 25年同期（3,323万）</div><div class="ks">全年目标5,250万$ · 完成77.0%</div></div>
-<div class="kc gold"><div class="kl">1–5月利润（实际财报）</div><div class="kv">982<span class="ku">万元</span></div><div class="kd warn">利润率 6.30%（毛利率15.09%）</div><div class="ks">毛利率三年持续下滑，结构性问题待解</div></div>
-<div class="kc gold"><div class="kl">H1销售 vs H1全年占比</div><div class="kv">19,991<span class="ku">万</span></div><div class="kd pos">同比25年H1（18,176万）+10.0%</div><div class="ks">H1占全年目标54.9%（25年同期49.9%）</div></div>
+<!-- 关键预警 -->
+<div class="alert h">
+  <div class="alert-icon">🔴</div>
+  <div class="alert-body">
+    <div class="alert-title">四部利润连续两月为负 — 结构性问题确认</div>
+    <div class="alert-text">四部4月利润率1.37%（Big W汇损），6月再度跌至<strong>−1.69%</strong>，1–6月累计毛利率仅12.79%，是全楼最低值。根因：Big W和Auchan商超客户在汇率低、原料高环境下价格倒逼，利润空间被系统性挤压。这不是单月异常，而是客户结构性问题。H2必须对两类客户严格执行毛利底线管控，不低于12%接单。</div>
+  </div>
+</div>
+<div class="alert ok">
+  <div class="alert-icon">✅</div>
+  <div class="alert-body">
+    <div class="alert-title">31部6月毛利率19.21% · 利润率8.88% — 全楼双项第一</div>
+    <div class="alert-text">31部6月销售458万（同比+16%），毛利率19.21%创年内最高，利润率8.88%全楼最强。Etam/Undiz高价值产品线 + SUPRE翻单组合效果显著，证明结构优化的方向正确。</div>
+  </div>
 </div>
 
 <div class="kg4">
-<div class="kc c3"><div class="kl"><span style="color:var(--c3)">■</span> 三部 1–8月</div><div class="kv">9,751<span class="ku">万</span></div><div class="kd warn">同比 +1.5% · 全年进度70.7%</div><div class="ks">创汇1,393万$ · 目标进度70.7%</div></div>
-<div class="kc c31"><div class="kl"><span style="color:var(--c31)">■</span> 31部 1–8月</div><div class="kv">3,634<span class="ku">万</span></div><div class="kd pos">同比 +22.4% · 全年进度61.1%</div><div class="ks">创汇519万$ · 目标进度57.7%</div></div>
-<div class="kc c4"><div class="kl"><span style="color:var(--c4)">■</span> 四部 1–8月</div><div class="kv">8,159<span class="ku">万</span></div><div class="kd pos">同比 +18.6% · 全年进度88.3%</div><div class="ks">创汇1,177万$ · 目标进度89.2%</div></div>
-<div class="kc c26"><div class="kl"><span style="color:var(--c26)">■</span> 26部 1–8月</div><div class="kv">6,663<span class="ku">万</span></div><div class="kd pos">同比 +65.9% · 全年进度89.8%</div><div class="ks">创汇955万$ · 目标进度90.1%</div></div>
+  <div class="kc cx"><div class="kl">6月全楼销售</div><div class="kv">4,255<span class="ku">万</span></div><div class="kd pos">↑ +8% vs 25年同月（3,940万）</div><div class="ks">1–6月累计19,841万，同比+7.8%</div></div>
+  <div class="kc cx"><div class="kv">630<span class="ku">万$</span></div><div class="kl">6月全楼创汇</div><div class="kd pos">↑ +13% vs 25年同月</div><div class="ks">1–6月累计2,872万$，目标进度54.7%</div></div>
+  <div class="kc warn"><div class="kl">6月全楼毛利率</div><div class="kv">14.26<span class="ku">%</span></div><div class="kd neg">↓ vs 25年同月（16.63%）−2.37ppt</div><div class="ks">1–6月累计14.91%，持续低于历史</div></div>
+  <div class="kc warn"><div class="kl">6月全楼利润率</div><div class="kv">4.73<span class="ku">%</span></div><div class="kd neg">↓ vs 25年同月（6.89%）−2.16ppt</div><div class="ks">1–6月累计5.97%，低于去年6.89%</div></div>
+</div>
+
+<div class="tw">
+  <table>
+    <thead><tr><th>部门</th><th>6月销售</th><th>vs 去年同月</th><th>6月创汇（万$）</th><th>6月毛利率</th><th>vs 25年同月</th><th>6月利润率</th><th>vs 25年同月</th><th>1–6月累计毛利率</th><th>1–6月累计利润率</th></tr></thead>
+    <tbody>
+      <tr><td>三部</td><td>1,264</td><td class="neg-c">↓−16%</td><td>174.4</td><td class="warn-c">12.07%</td><td class="neg-c">↓−5.92ppt</td><td class="warn-c">4.93%</td><td class="neg-c">↓−2.43ppt</td><td class="warn-c">14.80%</td><td class="warn-c">6.57%</td></tr>
+      <tr><td>31部</td><td>458</td><td class="pos-c">↑+16%</td><td>67.3</td><td class="pos-c">19.21%</td><td class="pos-c">↑+2.56ppt</td><td class="pos-c">8.88%</td><td class="pos-c">↑+2.82ppt</td><td class="pos-c">16.28%</td><td class="pos-c">6.76%</td></tr>
+      <tr><td>四部</td><td>796</td><td class="warn-c">↑+7%</td><td>117.8</td><td class="neg-c">8.59%</td><td class="neg-c">↓−6.50ppt</td><td class="neg-c">−1.69% ⚠</td><td class="neg-c">↓−8.18ppt</td><td class="neg-c">12.79%</td><td class="neg-c">4.20%</td></tr>
+      <tr><td>26部</td><td>1,737</td><td class="pos-c">↑+61%</td><td>252.8</td><td class="pos-c">17.15%</td><td class="pos-c">↑+1.61ppt</td><td class="pos-c">6.43%</td><td class="pos-c">↑+0.54ppt</td><td class="pos-c">16.58%</td><td class="pos-c">6.59%</td></tr>
+      <tr class="tr-total"><td>合计</td><td>4,255</td><td class="pos-c">↑+8%</td><td>630.3</td><td class="warn-c">14.26%</td><td class="neg-c">↓−2.37ppt</td><td class="warn-c">4.73%</td><td class="neg-c">↓−2.16ppt</td><td class="warn-c">14.91%</td><td class="warn-c">5.97%</td></tr>
+    </tbody>
+  </table>
 </div>
 </section>
 
-<!-- 02 Q1 -->
-<section id="q1">
-<div class="sh"><div class="sn">02 · Q1 REVIEW</div><div class="st">第一季度总结（1–3月）</div>
-<div class="sd">Q1全楼销售<em class="hi">9,462万元</em>，同比<em class="pos">+5.9%</em>（25年Q1为8,937万）；创汇1,363万$，同比+8.0%。四部（+13.9%）和31部（+19.0%）领跑，26部受O'Stin年初淡季影响同比−10.5%。<em class="warn">毛利率15.09%，持续低于2025年同期（17.24%），增收不增利的结构问题显现。</em></div></div>
-
-<div class="kg4">
-<div class="kc cx"><div class="kl">Q1合计销售</div><div class="kv">9,462<span class="ku">万</span></div><div class="kd pos">↑ +5.9% vs 25年Q1（8,937万）</div></div>
-<div class="kc cx"><div class="kl">Q1合计创汇</div><div class="kv">1,363<span class="ku">万$</span></div><div class="kd pos">↑ +8.0% vs 25年Q1（1,263万）</div></div>
-<div class="kc neg"><div class="kl">Q1毛利率</div><div class="kv">15.09<span class="ku">%</span></div><div class="kd neg">↓ −2.15ppt vs 25年Q1（17.24%）</div></div>
-<div class="kc neg"><div class="kl">Q1利润率</div><div class="kv">6.40<span class="ku">%</span></div><div class="kd neg">↓ −0.69ppt vs 25年Q1（7.09%）</div></div>
+<!-- ══ 02 GAUGE ══ -->
+<section id="gauge">
+<div class="sh">
+  <div class="sn">02 · FULL-YEAR PROGRESS</div>
+  <div class="st">全年目标进度（截至10月 · 维度表0701）</div>
 </div>
-
-<div class="tw"><table>
-<thead><tr><th>部门</th><th>Q1销售（万）</th><th>同比25年Q1</th><th>Q1创汇（万$）</th><th>Q1利润（万）</th><th>Q1毛利率</th><th>Q1利润率</th><th>全年目标</th><th>Q1进度</th></tr></thead>
-<tbody>
-<tr><td>三部（周妍/周洁 · Sherry）</td><td>4,003</td><td class="pos-c">+4.9%</td><td>572</td><td>～334</td><td class="warn-c">15.41%</td><td class="warn-c">6.94%</td><td>13,790万</td><td class="warn-c">29.0%</td></tr>
-<tr><td>31部（周妍/陈丽微 · Jessy）</td><td>962</td><td class="pos-c">+19.0%</td><td>138</td><td>～88</td><td class="pos-c">15.52%</td><td class="pos-c">6.22%（↑）</td><td>5,950万</td><td class="neg-c">16.2%</td></tr>
-<tr><td>四部（姜露平/高小娜 · Barry）</td><td>2,971</td><td class="pos-c">+13.9%</td><td>433</td><td>～189</td><td class="warn-c">13.54%</td><td class="warn-c">5.84%</td><td>9,240万</td><td class="warn-c">32.2%</td></tr>
-<tr><td>26部（姜露平/沈优优 · Kelly）</td><td>1,526</td><td class="neg-c">−10.5%</td><td>220</td><td>～114</td><td class="pos-c">16.31%</td><td class="pos-c">6.66%</td><td>7,420万</td><td class="neg-c">20.6%</td></tr>
-<tr class="tr-total"><td>17楼合计</td><td>9,462</td><td class="pos-c">+5.9%</td><td>1,363</td><td>～724</td><td class="warn-c">15.09%（毛利）</td><td class="warn-c">6.40%</td><td>36,400万</td><td class="warn-c">26.0%</td></tr>
-</tbody></table></div>
-
-<div class="g2">
-<div>
-<div style="font-size:13px;color:var(--fg);font-weight:600;margin-bottom:12px">Q1各部门月度销售（万元）</div>
-<div class="tw"><table>
-<thead><tr><th>部门</th><th>1月</th><th>2月</th><th>3月</th><th>Q1合计</th></tr></thead>
-<tbody>
-<tr><td>三部</td><td>2,221</td><td>1,365</td><td>417</td><td class="pos-c">4,003</td></tr>
-<tr><td>31部</td><td>411</td><td>339</td><td>212</td><td>962</td></tr>
-<tr><td>四部</td><td>1,135</td><td>1,292</td><td>545</td><td class="pos-c">2,971</td></tr>
-<tr><td>26部</td><td>799</td><td>342</td><td>385</td><td class="neg-c">1,526</td></tr>
-<tr class="tr-total"><td>合计</td><td>4,566</td><td>3,338</td><td>1,557</td><td>9,462</td></tr>
-</tbody></table></div>
-</div>
-<div class="cw">
-<div class="ct">Q1亮点与隐忧</div>
-<div class="pi ok">✅ Cortefiel Q1爆发：四部1-3月累计2,971万，Cortefiel同比+180%，欧元高位红利明显</div>
-<div class="pi ok">✅ Just Jeans三部Q1同比+150%，子品牌Dotti首次规模化下单，女装主品牌产值提升</div>
-<div class="pi ok">✅ 31部Q1+19%，Etam调整策略初见成效，Undiz回流国内，结构持续改善</div>
-<div class="pi warn">⚠ 26部Q1同比−10.5%，O'Stin年初淡季 + 采购预算收缩，2月仅342万</div>
-<div class="pi warn">⚠ 3月全楼仅1,557万，是年内第一个低谷（去年同期1,637万）</div>
-<div class="pi bad">🔴 毛利率15.09%较25年Q1下滑2.15ppt，三年累计↓3ppt+，结构性压利</div>
-</div>
-</div>
-</section>
-
-<!-- 03 Q2 -->
-<section id="q2">
-<div class="sh"><div class="sn">03 · Q2 REVIEW</div><div class="st">第二季度复盘（4–6月）</div>
-<div class="sd">Q2全楼销售<em class="hi">10,529万元</em>，同比<em class="pos">+19.2%</em>（25年Q2为8,832万）；创汇1,507万$。主驱动力为<em class="hi">26部O'Stin旺季</em>（5月1,721万+6月1,775万），是全楼Q2最大贡献。4月全楼同比−4.1%为Q2弱点，Cotton On Plush Fleece当季数量大幅减少是三部4月下滑主因。四部4月利润率<em class="neg">1.37%</em>为年度最低点，已确认为Big W 2025年10月订单的汇率损失所致。</div></div>
-
-<div class="kg4">
-<div class="kc cx"><div class="kl">Q2合计销售</div><div class="kv">10,529<span class="ku">万</span></div><div class="kd pos">↑ +19.2% vs 25年Q2（8,832万）</div></div>
-<div class="kc cx"><div class="kl">Q2合计创汇</div><div class="kv">1,507<span class="ku">万$</span></div><div class="kd pos">↑ +15.7% vs 25年Q2（1,303万）</div></div>
-<div class="kc c26"><div class="kl">26部Q2（5+6月）</div><div class="kv">3,496<span class="ku">万</span></div><div class="kd pos">5月1,721万 + 6月1,775万 · Q2绝对主力</div></div>
-<div class="kc neg"><div class="kl">5月全楼利润率</div><div class="kv">6.97<span class="ku">%</span></div><div class="kd warn">毛利15.48%，是1-5月累计最高月</div></div>
-</div>
-
-<div style="font-size:13px;color:var(--fg);font-weight:600;margin-bottom:12px">★ 2026年4–6月逐月数据（含5月财报实拍）</div>
-<div class="tw"><table>
-<thead><tr><th>月份</th><th>三部</th><th>31部</th><th>四部</th><th>26部</th><th>全楼合计</th><th>同比25年</th><th>全楼创汇</th><th>全楼利润率</th></tr></thead>
-<tbody>
-<tr><td>4月</td><td>889</td><td>523</td><td>715</td><td>388</td><td>2,516</td><td class="neg-c">−4.1%</td><td>363万$</td><td class="neg-c">4.72%（四部1.37%⚠）</td></tr>
-<tr><td>5月（实拍）</td><td>839</td><td>330</td><td>791</td><td>1,746</td><td>3,707</td><td class="pos-c">+3.4%（vs去年3,586万）</td><td>548万$</td><td class="warn-c">6.97%（1–5月累计6.30%）</td></tr>
-<tr><td>6月</td><td>1,277</td><td>538</td><td>841</td><td>1,775</td><td>4,431</td><td class="pos-c">+9.9%</td><td>633万$</td><td class="neu-c">—</td></tr>
-<tr class="tr-total"><td>Q2合计</td><td>3,005</td><td>1,391</td><td>2,347</td><td>3,909</td><td>10,529</td><td class="pos-c">+19.2%</td><td>1,507万$</td><td class="warn-c">（1–5月累计6.30%）</td></tr>
-</tbody></table></div>
-
-<div class="kg4">
-<div class="kc c3"><div class="kl">三部 Q2</div><div class="kv">3,005<span class="ku">万</span></div><div class="kd neg">↓ −15.7% vs 25年Q2（3,566万）</div><div class="ks">Plush Fleece减少 · Just Jeans支撑</div></div>
-<div class="kc c31"><div class="kl">31部 Q2</div><div class="kv">1,391<span class="ku">万</span></div><div class="kd pos">↑ +20.8% vs 25年Q2（1,151万）</div><div class="ks">Etam+Supre双线发力，Q2结构最优</div></div>
-<div class="kc c4"><div class="kl">四部 Q2</div><div class="kv">2,347<span class="ku">万</span></div><div class="kd pos">↑ +4.6% vs 25年Q2（2,243万）</div><div class="ks">Cortefiel Q2稳健 · 4月利润率异常</div></div>
-<div class="kc c26"><div class="kl">26部 Q2</div><div class="kv">3,909<span class="ku">万</span></div><div class="kd pos">↑ +67.3% vs 25年Q2（2,338万）</div><div class="ks">O'Stin旺季完美兑现，Q2全楼MVP</div></div>
-</div>
-</section>
-
-<!-- 04 H1 -->
-<section id="h1">
-<div class="sh"><div class="sn">04 · H1 FULL PICTURE</div><div class="st">上半年全景分析（1–6月）</div>
-<div class="sd">H1全楼销售<em class="hi">19,991万元</em>，同比<em class="pos">+10.0%</em>（25年H1为18,176万）；创汇2,870万$，完成全年目标<em class="pos">54.7%</em>。四部（+5.6%稳健）和26部（+61.0%爆发）是主驱动力，三部同比−12.3%是最大拖累，31部同比+25.3%为正向惊喜。<em class="warn">H1完成率54.7%低于"自然进度"58.3%（6/12月），说明H2需提速。</em></div></div>
 
 <div class="gauge-row">
-<div class="gc">
-<div class="glb"><span class="dot" style="background:var(--c3)"></span>进出口三部</div>
-<div class="gw"><svg viewBox="0 0 130 75"><path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#252d42" stroke-width="10" stroke-linecap="round"/><path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#5b9fff" stroke-width="10" stroke-linecap="round" stroke-dasharray="172.8" stroke-dashoffset="50.7"/></svg><div class="gp" style="color:var(--c3)">71%</div></div>
-<div class="gs">9,751 / 13,790万</div><div class="gtag warn">⚠ 约自然进度</div>
-</div>
-<div class="gc">
-<div class="glb"><span class="dot" style="background:var(--c31)"></span>进出口31部</div>
-<div class="gw"><svg viewBox="0 0 130 75"><path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#252d42" stroke-width="10" stroke-linecap="round"/><path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#2dd4aa" stroke-width="10" stroke-linecap="round" stroke-dasharray="172.8" stroke-dashoffset="72.4"/></svg><div class="gp" style="color:var(--c31)">58%</div></div>
-<div class="gs">3,634 / 5,950万</div><div class="gtag warn">⚠ 落后6pp</div>
-</div>
-<div class="gc">
-<div class="glb"><span class="dot" style="background:var(--c4)"></span>进出口四部</div>
-<div class="gw"><svg viewBox="0 0 130 75"><path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#252d42" stroke-width="10" stroke-linecap="round"/><path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#fdb94a" stroke-width="10" stroke-linecap="round" stroke-dasharray="172.8" stroke-dashoffset="19.4"/></svg><div class="gp" style="color:var(--c4)">88%</div></div>
-<div class="gs">8,159 / 9,240万</div><div class="gtag ok">✅ 超进度30pp</div>
-</div>
-<div class="gc">
-<div class="glb"><span class="dot" style="background:var(--c26)"></span>进出口26部</div>
-<div class="gw"><svg viewBox="0 0 130 75"><path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#252d42" stroke-width="10" stroke-linecap="round"/><path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#f06080" stroke-width="10" stroke-linecap="round" stroke-dasharray="172.8" stroke-dashoffset="17.3"/></svg><div class="gp" style="color:var(--c26)">90%</div></div>
-<div class="gs">6,663 / 7,420万</div><div class="gtag ok">✅ 超进度32pp</div>
-</div>
+  <div class="gc">
+    <div class="glb"><span class="dot" style="background:var(--c3)"></span>进出口三部</div>
+    <div class="gw">
+      <svg viewBox="0 0 130 75"><path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#252d42" stroke-width="10" stroke-linecap="round"/>
+      <path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#5b9fff" stroke-width="10" stroke-linecap="round" stroke-dasharray="172.8" stroke-dashoffset="40.2"/></svg>
+      <div class="gp" style="color:var(--c3)">77%</div>
+    </div>
+    <div class="gs">10,603 / 13,790万</div>
+    <div class="gtag warn">⚠ 11–12月需455万$</div>
+  </div>
+  <div class="gc">
+    <div class="glb"><span class="dot" style="background:var(--c31)"></span>进出口31部</div>
+    <div class="gw">
+      <svg viewBox="0 0 130 75"><path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#252d42" stroke-width="10" stroke-linecap="round"/>
+      <path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#2dd4aa" stroke-width="10" stroke-linecap="round" stroke-dasharray="172.8" stroke-dashoffset="50.1"/></svg>
+      <div class="gp" style="color:var(--c31)">71%</div>
+    </div>
+    <div class="gs">4,473 / 5,950万</div>
+    <div class="gtag warn">⚠ 11–12月需261万$</div>
+  </div>
+  <div class="gc">
+    <div class="glb"><span class="dot" style="background:var(--c4)"></span>进出口四部</div>
+    <div class="gw">
+      <svg viewBox="0 0 130 75"><path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#252d42" stroke-width="10" stroke-linecap="round"/>
+      <path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#fdb94a" stroke-width="10" stroke-linecap="round" stroke-dasharray="172.8" stroke-dashoffset="-13.5"/></svg>
+      <div class="gp" style="color:var(--c4)">108%</div>
+    </div>
+    <div class="gs">9,646 / 9,240万</div>
+    <div class="gtag ok">✅ 已超额完成</div>
+  </div>
+  <div class="gc">
+    <div class="glb"><span class="dot" style="background:var(--c26)"></span>进出口26部</div>
+    <div class="gw">
+      <svg viewBox="0 0 130 75"><path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#252d42" stroke-width="10" stroke-linecap="round"/>
+      <path d="M10,70 A55,55 0 0,1 120,70" fill="none" stroke="#f06080" stroke-width="10" stroke-linecap="round" stroke-dasharray="172.8" stroke-dashoffset="-19.0"/></svg>
+      <div class="gp" style="color:var(--c26)">111%</div>
+    </div>
+    <div class="gs">8,080 / 7,420万</div>
+    <div class="gtag ok">✅ 已超额完成</div>
+  </div>
 </div>
 
-<div class="tw"><table>
-<thead><tr><th>部门</th><th>H1销售（万）</th><th>全年目标</th><th>H1进度</th><th>H1创汇（万$）</th><th>创汇目标</th><th>创汇进度</th><th>vs 25年H1</th><th>1-8月销售</th><th>1-8月进度</th><th>剩余缺口</th></tr></thead>
-<tbody>
-<tr><td>三部</td><td>7,035</td><td>13,790</td><td class="warn-c">51.0%</td><td>1,005</td><td>1,970</td><td class="warn-c">51.0%</td><td class="neg-c">−12.3%</td><td>9,751</td><td class="warn-c">70.7%</td><td class="warn-c">4,039万/577万$</td></tr>
-<tr><td>31部</td><td>2,360</td><td>5,950</td><td class="neg-c">39.7%</td><td>337</td><td>900</td><td class="neg-c">37.5%</td><td class="pos-c">+25.3%</td><td>3,634</td><td class="warn-c">61.1%</td><td class="warn-c">2,316万/381万$</td></tr>
-<tr><td>四部</td><td>5,186</td><td>9,240</td><td class="pos-c">56.1%</td><td>753</td><td>1,320</td><td class="pos-c">57.0%</td><td class="pos-c">+5.6%</td><td>8,159</td><td class="pos-c">88.3%</td><td class="pos-c">1,081万/143万$</td></tr>
-<tr><td>26部</td><td>5,410</td><td>7,420</td><td class="pos-c">72.9%</td><td>776</td><td>1,060</td><td class="pos-c">73.2%</td><td class="pos-c">+61.0%</td><td>6,663</td><td class="pos-c">89.8%</td><td class="pos-c">757万/105万$</td></tr>
-<tr class="tr-total"><td>17楼合计</td><td>19,991</td><td>36,400</td><td class="warn-c">54.9%</td><td>2,870</td><td>5,250</td><td class="warn-c">54.7%</td><td class="pos-c">+10.0%</td><td>28,207</td><td class="pos-c">77.5%</td><td class="warn-c">8,193万/1,206万$</td></tr>
-</tbody></table></div>
-
-<div class="cw">
-<div class="ct">月度销售走势 — 2025全年 + 2026年1–8月（虚线）</div>
-<div class="cl">
-<div class="cli"><div class="cld" style="background:var(--c3)"></div>三部</div>
-<div class="cli"><div class="cld" style="background:var(--c31)"></div>31部</div>
-<div class="cli"><div class="cld" style="background:var(--c4)"></div>四部</div>
-<div class="cli"><div class="cld" style="background:var(--c26)"></div>26部</div>
+<div class="tw">
+  <table>
+    <thead><tr><th>部门</th><th>1–10月销售</th><th>全年目标</th><th>销售进度</th><th>1–10月创汇（万$）</th><th>创汇目标</th><th>创汇进度</th><th>11–12月剩余（万$）</th><th>所需月均（万$）</th></tr></thead>
+    <tbody>
+      <tr><td>三部</td><td>10,603</td><td>13,790</td><td class="warn-c">76.9%</td><td>1,514.7</td><td>1,970</td><td class="warn-c">76.9%</td><td class="warn-c">455.3</td><td class="warn-c">227.6</td></tr>
+      <tr><td>31部</td><td>4,473</td><td>5,950</td><td class="warn-c">75.2%</td><td>639.0</td><td>900</td><td class="warn-c">71.0%</td><td class="warn-c">261.1</td><td class="warn-c">130.5</td></tr>
+      <tr><td>四部</td><td>9,646</td><td>9,240</td><td class="pos-c">104.4% ✅</td><td>1,397.7</td><td>1,320</td><td class="pos-c">105.9% ✅</td><td class="pos-c">—</td><td class="pos-c">超额完成</td></tr>
+      <tr><td>26部</td><td>8,080</td><td>7,420</td><td class="pos-c">108.9% ✅</td><td>1,165.5</td><td>1,060</td><td class="pos-c">109.9% ✅</td><td class="pos-c">—</td><td class="pos-c">超额完成</td></tr>
+      <tr class="tr-total"><td>17楼合计</td><td>32,802</td><td>36,400</td><td class="warn-c">90.1%</td><td>4,716.8</td><td>5,250</td><td class="warn-c">89.8%</td><td class="warn-c">533.2</td><td class="warn-c">266.6</td></tr>
+    </tbody>
+  </table>
 </div>
-<div style="position:relative;height:300px"><canvas id="trendChart"></canvas></div>
+
+<div class="alert m">
+  <div class="alert-icon">⚡</div>
+  <div class="alert-body">
+    <div class="alert-title">全楼全年创汇缺口仅剩533万$，但三部+31部是唯一变量</div>
+    <div class="alert-text">四部和26部均已超额，不再需要H2冲量。<strong>全年能否达成5,250万$，100%取决于三部（455万$）和31部（261万$）在11–12月的表现。</strong>三部月均需227万$、31部月均需130万$，11月是关键——25年11月三部653万/31部560万，历史已验证可达。</div>
+  </div>
 </div>
 </section>
 
-<!-- 05 PROFIT -->
-<section id="profit">
-<div class="sh"><div class="sn">05 · PROFIT ANALYSIS</div><div class="st">利润深度分析（含5月财报实拍数据）</div>
-<div class="sd">1–5月全楼累计利润<em class="hi">982万元</em>，利润率6.30%（毛利率15.09%）。<em class="pos">5月全楼利润率6.97%，是Q2最强月</em>，26部5月旺季毛利率16.37%、利润率7.40%，带动全楼止跌回升。核心问题：<em class="neg">四部4月利润率仅1.37%</em>，已确认为Big W 2025年10月基本款因汇率问题直接利润为负——今后Big W接单必须严守利润率底线，不能仅看销售规模。Big W和Auchan商超类客人，在汇率低原料高的大环境下，结构性拉低了四部整体利润率。</div></div>
-
-<div class="kg4">
-<div class="kc c3"><div class="kl">三部 1–5月累计利润</div><div class="kv">393<span class="ku">万</span></div><div class="kd pos">利润率6.94% · 毛利率15.41%</div><div class="ks">Just Jeans高毛利拉动，Body/Sleep稳定</div></div>
-<div class="kc c31"><div class="kl">31部 1–5月累计利润</div><div class="kv">111<span class="ku">万</span></div><div class="kd warn">利润率6.22% · 毛利率15.52%</div><div class="ks">规模偏小，绝对值有限；毛利率全楼第二</div></div>
-<div class="kc c4"><div class="kl">四部 1–5月累计利润</div><div class="kv">235<span class="ku">万</span></div><div class="kd neg">利润率5.84% · 毛利率13.54%（最低）</div><div class="ks">Big W汇损+Auchan商超低毛利拖累</div></div>
-<div class="kc c26"><div class="kl">26部 1–5月累计利润</div><div class="kv">244<span class="ku">万</span></div><div class="kd pos">利润率6.66% · 毛利率16.31%（最高）</div><div class="ks">O'Stin旺季高产出，5月利润率7.40%</div></div>
+<!-- ══ 03 H2 REVIEW ══ -->
+<section id="h2">
+<div class="sh">
+  <div class="sn">03 · H2 REVIEW (JUL–OCT)</div>
+  <div class="st">7–10月月度走势复盘</div>
 </div>
 
 <div class="g2">
-<div class="cw"><div class="ct">各部门月度利润率走势（Q1–5月）</div><div style="position:relative;height:230px"><canvas id="marginChart"></canvas></div></div>
-<div class="cw"><div class="ct">1–5月利润构成（万元）</div><div style="position:relative;height:230px"><canvas id="profitDonut"></canvas></div></div>
+  <div class="cw">
+    <div class="ct">月度销售走势 — 2025全年 + 2026年1–10月</div>
+    <div class="cl">
+      <div class="cli"><div class="cld" style="background:var(--c3)"></div>三部</div>
+      <div class="cli"><div class="cld" style="background:var(--c31)"></div>31部</div>
+      <div class="cli"><div class="cld" style="background:var(--c4)"></div>四部</div>
+      <div class="cli"><div class="cld" style="background:var(--c26)"></div>26部</div>
+    </div>
+    <div style="position:relative;height:270px"><canvas id="trendChart"></canvas></div>
+  </div>
+  <div class="cw">
+    <div class="ct">7–10月当月利润率对比（%）</div>
+    <div style="position:relative;height:270px"><canvas id="marginChart"></canvas></div>
+  </div>
 </div>
 
-<div class="tw"><table>
-<thead><tr><th>月份/指标</th><th>三部</th><th>31部</th><th>四部</th><th>26部</th><th>全楼</th></tr></thead>
-<tbody>
-<tr><td>1月 毛利率</td><td class="warn-c">17.70%</td><td class="pos-c">19.03%</td><td class="warn-c">11.84%</td><td class="warn-c">13.66%</td><td class="warn-c">14.83%</td></tr>
-<tr><td>1–4月 累计毛利率</td><td class="warn-c">17.81%</td><td class="pos-c">16.87%</td><td class="warn-c">15.54%</td><td class="pos-c">16.10%</td><td class="warn-c">16.85%</td></tr>
-<tr><td>5月 毛利率（实拍）</td><td class="warn-c">15.89%</td><td class="pos-c">17.73%</td><td class="warn-c">12.14%</td><td class="pos-c">16.37%</td><td class="warn-c">15.48%</td></tr>
-<tr><td>1–5月 累计毛利率</td><td class="warn-c">15.41%</td><td class="pos-c">15.52%</td><td class="neg-c">13.54%（最低）</td><td class="pos-c">16.31%（最高）</td><td class="warn-c">15.09%</td></tr>
-<tr class="tr-total"><td>1–5月 累计利润率</td><td class="warn-c">6.94%</td><td class="warn-c">6.22%</td><td class="neg-c">5.84%</td><td class="pos-c">6.66%</td><td class="warn-c">6.30%</td></tr>
-</tbody></table></div>
+<div class="tw">
+  <table>
+    <thead><tr><th>月份</th><th>三部</th><th>31部</th><th>四部</th><th>26部</th><th>全楼合计</th><th>vs 25年同月</th><th>特征</th></tr></thead>
+    <tbody>
+      <tr class="tr-h"><td>7月</td><td>1,452</td><td>495</td><td>1,895</td><td>1,060</td><td>4,901</td><td class="pos-c">+19.1%</td><td>四部7月1,895万年内最强，Cortefiel爆发</td></tr>
+      <tr class="tr-h"><td>8月</td><td>1,497</td><td>1,064</td><td>1,258</td><td>389</td><td>4,207</td><td class="pos-c">+20.9%</td><td>31部8月1,064万历史峰值，Etam秋冬大爆发</td></tr>
+      <tr class="tr-h"><td>9月</td><td>569</td><td>468</td><td>1,048</td><td>248</td><td>2,334</td><td class="warn-c">+2.0%（est）</td><td>三部9月急跌，Cotton On季节性低谷</td></tr>
+      <tr class="tr-h"><td>10月</td><td>107</td><td>152</td><td>168</td><td>1,040</td><td>1,468</td><td class="warn-c">−5.0%（est）</td><td>四部10月仅168万，历史断档如期出现；26部O'Stin翻单救场</td></tr>
+      <tr class="tr-total"><td>7–10月合计</td><td>3,625</td><td>2,179</td><td>4,370</td><td>2,737</td><td>12,911</td><td class="pos-c">+11.3%</td><td>H2前4月整体健康</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="alert m">
+  <div class="alert-icon">⚠</div>
+  <div class="alert-body">
+    <div class="alert-title">四部10月仅168万元 — 历史断档规律验证，11月须立即补量</div>
+    <div class="alert-text">如预判，四部10月出现断档（仅168万，去年同期258万），系Cortefiel出货完毕后AW27接单过渡期空档。<strong>11月开始须以新一轮Cortefiel SS27接单 + Big W SS27锁单 + Auchan年底补单三线并进</strong>，目标11月不低于1,000万元。</div>
+  </div>
+</div>
 </section>
 
-<!-- 06 DEPT -->
+<!-- ══ 04 DEPT ══ -->
 <section id="dept">
-<div class="sh"><div class="sn">06 · DEPT DETAIL</div><div class="st">四部门分部深度评估（截至8月）</div></div>
+<div class="sh">
+  <div class="sn">04 · DEPT DETAIL</div>
+  <div class="st">四部门截至10月深度评估</div>
+</div>
 
 <!-- 三部 -->
 <div class="dh">
-<span class="dbadge c3">三部</span>
-<div><div class="dn">进出口三部</div><div class="dm">周妍 / 周洁（副经理）· 业务组长：Sherry · 15人</div></div>
-<div class="dtr"><div class="dtrl">全年创汇目标</div><div class="dtrv" style="color:var(--c3)">1,970万$</div></div>
+  <span class="db c3">三部</span>
+  <div><div class="dn">进出口三部</div><div class="dm">周妍/周洁 · Sherry · 15人</div></div>
+  <div class="dtr"><div class="dtrl">1–10月创汇 / 目标</div><div class="dtrv" style="color:var(--c3)">1,515 / 1,970万$</div></div>
 </div>
 <div class="kg4">
-<div class="kc c3"><div class="kl">1–8月销售</div><div class="kv">9,751<span class="ku">万</span></div><div class="kd warn">同比+1.5%（25年同期9,606万）</div></div>
-<div class="kc c3"><div class="kl">1–8月创汇</div><div class="kv">1,393<span class="ku">万$</span></div><div class="kd warn">完成目标70.7%，剩余577万$</div></div>
-<div class="kc c3"><div class="kl">人均创汇（1–8月）</div><div class="kv">92.9<span class="ku">万$/人</span></div><div class="kd warn">目标131.3万$/人 · 进度70.7%</div></div>
-<div class="kc c3"><div class="kl">Cotton On全系创汇</div><div class="kv">1,190<span class="ku">万$</span></div><div class="kd warn">占三部85.4% · 同比−6.0%</div></div>
+  <div class="kc c3"><div class="kl">1–10月销售</div><div class="kv">10,603<span class="ku">万</span></div><div class="kd warn">进度76.9%，剩余3,187万</div></div>
+  <div class="kc c3"><div class="kl">1–10月创汇</div><div class="kv">1,515<span class="ku">万$</span></div><div class="kd warn">进度76.9%，剩余455万$</div></div>
+  <div class="kc c3"><div class="kl">11–12月月均需</div><div class="kv">227<span class="ku">万$/月</span></div><div class="kd warn">25年11月187万/12月107万可参考</div></div>
+  <div class="kc c3"><div class="kl">H2累计（7–10月）</div><div class="kv">518<span class="ku">万$</span></div><div class="kd pos">7月207+8月214+9月81+10月15</div></div>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-<div>
-<div style="font-size:12px;color:var(--fg2);margin-bottom:10px;font-weight:500">主要客户 1–8月创汇（万美元）</div>
-<div class="pb-item"><div class="pb-label"><span>Cotton On Body/Top（全系）</span><span style="color:var(--warn)">1,190万$ · 同比−6.0%</span></div><div class="pb-track"><div class="pb-fill" style="width:85%;background:var(--c3)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>Just Jean（含Dotti）</span><span style="color:var(--pos)">202万$ · 同比+90.3%</span></div><div class="pb-track"><div class="pb-fill" style="width:14%;background:var(--pos)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>Witchery（新客）</span><span style="color:var(--neg)">0.63万$ · 几乎零进展</span></div><div class="pb-track"><div class="pb-fill" style="width:0.05%;background:var(--neg)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>H2剩余创汇缺口</span><span style="color:var(--warn)">577万$ / 5个月</span></div><div class="pb-track"><div class="pb-fill" style="width:29.3%;background:var(--warn)"></div></div></div>
+<div style="font-size:12px;color:var(--fg2);line-height:1.85;background:var(--bg3);border-radius:8px;padding:14px 16px;margin-bottom:16px">
+  <div class="pi warn">⚠ <strong>9月急跌至569万、10月仅107万</strong>——Cotton On Body FLEECE季节性淡季，接单窗口已关闭；11月开始进入年底执行期，需等待AW27后续翻单补量</div>
+  <div class="pi ok">✅ <strong>7月+8月合计2,949万</strong>，旺季创年内最高双月峰值，验证了Cotton On Body的接单能力</div>
+  <div class="pi ok">✅ Just Jean 1–10月累计233万$（+96%），成为三部最重要的增长极，已超额完成全年200万$目标</div>
+  <div class="pi bad">🔴 <strong>11–12月455万$缺口极大</strong>，月均需227万$；历史上25年11月187万+12月107万=294万，意味着需要比去年同期多161万$，难度极高</div>
+  <div class="pi bad">🔴 Cotton On Top 1–10月仅132万$，同比−83%，全年缺口无法弥补，27年该产品线目标须重新评估</div>
 </div>
-<div style="font-size:12px;color:var(--fg2);line-height:1.9">
-<div class="pi ok">✅ Just Jeans 1–8月累计1,430万/202万$，同比+90.3%，已成三部第二大产品线</div>
-<div class="pi ok">✅ 8月单月1,363万，同比+1.5%，止住了连续5个月同比负增长的趋势</div>
-<div class="pi warn">⚠ Cotton On Body/Top 1–8月同比−6.0%，H2 FLEECE旺季（9–10月）是关键补量窗口</div>
-<div class="pi warn">⚠ Cotton On Top同比−83.4%，客人将订单大量移出，需重新评估产品策略</div>
-<div class="pi bad">🔴 Witchery新客年内几乎零进展（0.63万$），50万$目标已无望，建议正式复盘</div>
-<div class="pi bad">🔴 H2剩余577万$，月均需115万$（9–12月4个月），高于1–8月月均174万$，压力较大</div>
-</div>
-</div>
-
 <hr class="dv">
 
 <!-- 31部 -->
 <div class="dh">
-<span class="dbadge c31">31部</span>
-<div><div class="dn">进出口31部</div><div class="dm">周妍 / 陈丽微（副经理）· 业务组长：Jessy · 10.5人</div></div>
-<div class="dtr"><div class="dtrl">全年创汇目标</div><div class="dtrv" style="color:var(--c31)">900万$</div></div>
+  <span class="db c31">31部</span>
+  <div><div class="dn">进出口31部</div><div class="dm">周妍/陈丽微 · Jessy · 10.5人</div></div>
+  <div class="dtr"><div class="dtrl">1–10月创汇 / 目标</div><div class="dtrv" style="color:var(--c31)">639 / 900万$</div></div>
 </div>
 <div class="kg4">
-<div class="kc c31"><div class="kl">1–8月销售</div><div class="kv">3,634<span class="ku">万</span></div><div class="kd pos">同比+22.4%（25年同期2,968万）</div></div>
-<div class="kc c31"><div class="kl">1–8月创汇</div><div class="kv">519<span class="ku">万$</span></div><div class="kd warn">完成目标57.7%，剩余381万$</div></div>
-<div class="kc c31"><div class="kl">人均创汇（1–8月）</div><div class="kv">49.4<span class="ku">万$/人</span></div><div class="kd warn">目标85.7万$/人 · 进度57.7%</div></div>
-<div class="kc c31"><div class="kl">Etam全系创汇</div><div class="kv">254<span class="ku">万$</span></div><div class="kd pos">同比+无穷大（去年几乎0） · 1-8月最强线</div></div>
+  <div class="kc c31"><div class="kl">1–10月销售</div><div class="kv">4,473<span class="ku">万</span></div><div class="kd warn">进度75.2%，剩余1,477万</div></div>
+  <div class="kc c31"><div class="kl">1–10月创汇</div><div class="kv">639<span class="ku">万$</span></div><div class="kd warn">进度71.0%，剩余261万$</div></div>
+  <div class="kc c31"><div class="kl">11–12月月均需</div><div class="kv">130<span class="ku">万$/月</span></div><div class="kd warn">8月已达152万，证明能力存在</div></div>
+  <div class="kc c31"><div class="kl">H2核心亮点</div><div class="kv">8月<span class="ku">1,064万</span></div><div class="kd pos">Etam秋冬爆发，历史月度最高</div></div>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-<div>
-<div style="font-size:12px;color:var(--fg2);margin-bottom:10px;font-weight:500">主要客户 1–8月创汇（万美元）</div>
-<div class="pb-item"><div class="pb-label"><span>Etam（Undiz+主品牌）</span><span style="color:var(--pos)">254万$ · 新高</span></div><div class="pb-track"><div class="pb-fill" style="width:48.9%;background:var(--pos)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>Cotton on Men/Supre</span><span style="color:var(--warn)">244万$ · 同比−26.2%</span></div><div class="pb-track"><div class="pb-fill" style="width:46.9%;background:var(--warn)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>NAR</span><span style="color:var(--pos)">21.8万$ · 同比+79%</span></div><div class="pb-track"><div class="pb-fill" style="width:4.2%;background:var(--c31)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>Myer（新客）</span><span style="color:var(--neg)">0万$ · 全年未落单</span></div><div class="pb-track"><div class="pb-fill" style="width:0%;background:var(--neg)"></div></div></div>
+<div style="font-size:12px;color:var(--fg2);line-height:1.85;background:var(--bg3);border-radius:8px;padding:14px 16px;margin-bottom:16px">
+  <div class="pi ok">✅ <strong>8月1,064万/152万$，历史最强月</strong>，Etam秋冬系列证明了爆发能力；1–10月创汇639万已超去年全年（612万$）</div>
+  <div class="pi ok">✅ Etam 1–10月累计316万$（1–6月时仅103万$），8–10月三个月贡献了213万$，爆发趋势确立</div>
+  <div class="pi warn">⚠ 10月仅152万，Etam旺季高峰已过，11–12月以Etam翻单+Undiz年底下单维持</div>
+  <div class="pi warn">⚠ <strong>COG Men/Supre 1–10月303万$，同比−28%</strong>，仍是结构性拖累；NAR节奏性接单，小批量高难度</div>
+  <div class="pi ok">✅ 11–12月需261万$（月均130万$），低于8月实绩152万$，完成可期</div>
 </div>
-<div style="font-size:12px;color:var(--fg2);line-height:1.9">
-<div class="pi ok">✅ Etam全系1–8月创汇254万$，已与Cotton on Men/Supre（244万$）并驾齐驱，成为31部双引擎</div>
-<div class="pi ok">✅ 8月单月864万/123万$，为年内最强月，31部H2加速迹象明显</div>
-<div class="pi ok">✅ 1–8月同比+22.4%，连续多月正增长，结构改善趋势确立</div>
-<div class="pi warn">⚠ Cotton on Men/Supre 同比−26.2%（1–8月244万$，去年330万$），缩量趋势持续</div>
-<div class="pi warn">⚠ H2剩余381万$（9–12月），月均需95.3万$；8月已达123万$，若9月维持则有望完成</div>
-<div class="pi bad">🔴 Myer新客全年0，需正式评估是否继续投入开发资源</div>
-</div>
-</div>
-
 <hr class="dv">
 
 <!-- 四部 -->
 <div class="dh">
-<span class="dbadge c4">四部</span>
-<div><div class="dn">进出口四部</div><div class="dm">姜露平 / 高小娜（副经理）· 业务组长：Barry（虞骅勇）· 彭玲玉 · 12.1人</div></div>
-<div class="dtr"><div class="dtrl">全年创汇目标</div><div class="dtrv" style="color:var(--c4)">1,320万$</div></div>
+  <span class="db c4">四部</span>
+  <div><div class="dn">进出口四部</div><div class="dm">姜露平/高小娜 · Barry/彭玲玉 · 12.1人</div></div>
+  <div class="dtr"><div class="dtrl">1–10月创汇 / 目标</div><div class="dtrv" style="color:var(--c4)">1,398 / 1,320万$（✅超额）</div></div>
 </div>
 <div class="kg4">
-<div class="kc c4"><div class="kl">1–8月销售</div><div class="kv">8,159<span class="ku">万</span></div><div class="kd pos">同比+18.6%（25年同期6,880万）</div></div>
-<div class="kc c4"><div class="kl">1–8月创汇</div><div class="kv">1,177<span class="ku">万$</span></div><div class="kd pos">完成目标89.2%，剩余仅143万$</div></div>
-<div class="kc c4"><div class="kl">人均创汇（1–8月）</div><div class="kv">97.3<span class="ku">万$/人</span></div><div class="kd pos">目标109.1万$/人 · 进度89.2% ✅</div></div>
-<div class="kc c4"><div class="kl">Cortefiel 1–8月创汇</div><div class="kv">472<span class="ku">万$</span></div><div class="kd pos">同比+64.6%，是四部最强产品线</div></div>
+  <div class="kc c4"><div class="kl">1–10月销售</div><div class="kv">9,646<span class="ku">万</span></div><div class="kd pos">✅ 超额104.4%</div></div>
+  <div class="kc c4"><div class="kl">1–10月创汇</div><div class="kv">1,398<span class="ku">万$</span></div><div class="kd pos">✅ 超额105.9%，全年目标已锁定</div></div>
+  <div class="kc c4"><div class="kl">Cortefiel 1–10月</div><div class="kv">572<span class="ku">万$</span></div><div class="kd pos">同比+51%，超全年目标（440万$）30%</div></div>
+  <div class="kc neg"><div class="kl">1–6月利润率</div><div class="kv">4.20<span class="ku">%</span></div><div class="kd neg">全楼最低，4月/6月两度为负，急需修复</div></div>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-<div>
-<div style="font-size:12px;color:var(--fg2);margin-bottom:10px;font-weight:500">主要客户 1–8月创汇（万美元）</div>
-<div class="pb-item"><div class="pb-label"><span>Cortefiel（Tendam）</span><span style="color:var(--pos)">472万$ · 同比+64.6%</span></div><div class="pb-track"><div class="pb-fill" style="width:40.1%;background:var(--c4)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>Big W</span><span style="color:var(--warn)">416万$ · 同比−15.5%</span></div><div class="pb-track"><div class="pb-fill" style="width:35.3%;background:var(--warn)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>Auchan</span><span style="color:var(--warn)">213万$ · 同比+51.3%</span></div><div class="pb-track"><div class="pb-fill" style="width:18.1%;background:var(--c4)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>Meijer</span><span style="color:var(--pos)">31.8万$ · 同比+43.9%</span></div><div class="pb-track"><div class="pb-fill" style="width:2.7%;background:var(--c31)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>VER（新客）</span><span style="color:var(--pos)">14万$ · 新客首单</span></div><div class="pb-track"><div class="pb-fill" style="width:1.2%;background:var(--pos)"></div></div></div>
+<div style="font-size:12px;color:var(--fg2);line-height:1.85;background:var(--bg3);border-radius:8px;padding:14px 16px;margin-bottom:16px">
+  <div class="pi ok">✅ <strong>7月1,895万为年内单月最高</strong>，Cortefiel AW26大货集中出货，创汇270万$单月峰值</div>
+  <div class="pi ok">✅ 全年目标已超额完成，H2不再有量的压力，重心全面转向<strong>利润率修复</strong>和<strong>SS27新赛季接单</strong></div>
+  <div class="pi bad">🔴 <strong>10月仅168万</strong>，历史断档规律完全验证，Big W/Auchan新赛季接单须在11月快速补量</div>
+  <div class="pi bad">🔴 <strong>利润率问题是四部最核心短板</strong>：Big W和Auchan须在SS27接单时明确设定12%毛利率底线，拒绝以"量"换"利"</div>
+  <div class="pi warn">⚠ Country Road全年尚未实质落单，需在11月前做最后一次突破尝试，否则须从27年计划中调整预期</div>
 </div>
-<div style="font-size:12px;color:var(--fg2);line-height:1.9">
-<div class="pi ok">✅ 全楼进度最领先，1–8月完成88.3%，H2剩余缺口仅143万$，全年目标已基本锁定</div>
-<div class="pi ok">✅ Cortefiel同比+64.6%（472万$），欧元高位红利持续，7月单月299万$为年内最强单月</div>
-<div class="pi ok">✅ Auchan同比+51.3%（213万$），睡衣珊瑚绒CO-development策略初见成效</div>
-<div class="pi warn">⚠ Big W同比−15.5%（416万$），东南亚转单风险持续，孟加拉政局趋稳后红利消退</div>
-<div class="pi warn">⚠ 4月利润率1.37%已确认为Big W汇损，H2接单必须强化利润率管控（Big W/Auchan商超需设毛利底线）</div>
-<div class="pi bad">🔴 Country Road新客全年0进展，前期投入未能落单，需重新评估开发节点</div>
-</div>
-</div>
-
 <hr class="dv">
 
 <!-- 26部 -->
 <div class="dh">
-<span class="dbadge c26">26部</span>
-<div><div class="dn">进出口26部</div><div class="dm">姜露平 / 沈优优（副经理）· 业务组长：Kelly · Bella（陈启旦）· 11.5人</div></div>
-<div class="dtr"><div class="dtrl">全年创汇目标</div><div class="dtrv" style="color:var(--c26)">1,060万$</div></div>
+  <span class="db c26">26部</span>
+  <div><div class="dn">进出口26部</div><div class="dm">姜露平/沈优优 · Kelly/Bella · 11.5人</div></div>
+  <div class="dtr"><div class="dtrl">1–10月创汇 / 目标</div><div class="dtrv" style="color:var(--c26)">1,165 / 1,060万$（✅超额）</div></div>
 </div>
 <div class="kg4">
-<div class="kc c26"><div class="kl">1–8月销售</div><div class="kv">6,663<span class="ku">万</span></div><div class="kd pos">同比+65.9%（25年同期4,016万）</div></div>
-<div class="kc c26"><div class="kl">1–8月创汇</div><div class="kv">955<span class="ku">万$</span></div><div class="kd pos">完成目标90.1%，剩余仅105万$</div></div>
-<div class="kc c26"><div class="kl">人均创汇（1–8月）</div><div class="kv">83.0<span class="ku">万$/人</span></div><div class="kd pos">目标92.2万$/人 · 进度90.1% ✅</div></div>
-<div class="kc c26"><div class="kl">O'Stin 1–8月创汇</div><div class="kv">906<span class="ku">万$</span></div><div class="kd pos">同比+63.6%，O'Stin旺季兑现</div></div>
+  <div class="kc c26"><div class="kl">1–10月销售</div><div class="kv">8,080<span class="ku">万</span></div><div class="kd pos">✅ 超额108.9%</div></div>
+  <div class="kc c26"><div class="kl">1–10月创汇</div><div class="kv">1,165<span class="ku">万$</span></div><div class="kd pos">✅ 超额109.9%，全年目标已锁定</div></div>
+  <div class="kc c26"><div class="kl">O'Stin 1–10月</div><div class="kv">1,104<span class="ku">万$</span></div><div class="kd pos">同比+44%，完成全年目标111.5%</div></div>
+  <div class="kc c26"><div class="kl">10月出现翻单</div><div class="kv">1,040<span class="ku">万元</span></div><div class="kd pos">O'Stin秋冬翻单救活10月</div></div>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-<div>
-<div style="font-size:12px;color:var(--fg2);margin-bottom:10px;font-weight:500">主要客户 1–8月创汇（万美元）</div>
-<div class="pb-item"><div class="pb-label"><span>O'Stin（全系列）</span><span style="color:var(--pos)">906万$ · 同比+63.6%</span></div><div class="pb-track"><div class="pb-fill" style="width:94.9%;background:var(--c26)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>TVOE（新客）</span><span style="color:var(--warn)">20.2万$ · 首单落地</span></div><div class="pb-track"><div class="pb-fill" style="width:2.1%;background:var(--warn)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>LAMODA</span><span style="color:var(--warn)">28.9万$ · 同比+181%</span></div><div class="pb-track"><div class="pb-fill" style="width:3.0%;background:var(--c26)"></div></div></div>
-<div class="pb-item"><div class="pb-label"><span>H2剩余缺口</span><span style="color:var(--pos)">105万$ · 基本已锁定</span></div><div class="pb-track"><div class="pb-fill" style="width:9.9%;background:var(--pos)"></div></div></div>
-</div>
-<div style="font-size:12px;color:var(--fg2);line-height:1.9">
-<div class="pi ok">✅ H1旺季5月1,721+6月1,775万完美兑现，O'Stin旺季是26部最核心竞争力</div>
-<div class="pi ok">✅ 全年目标已完成90.1%，H2仅需105万$，官方目标已锁定</div>
-<div class="pi ok">✅ TVOE新客首单20.2万$落地，LAMODA同比+181%（28.9万$），新客孵化开始出苗</div>
-<div class="pi warn">⚠ O'Stin业务高度集中（94.9%），单客户依赖极高；O'Stin采购预算仍处于压缩态</div>
-<div class="pi warn">⚠ 26部利润率受O'Stin 155天账期压制，工厂选择受限，H2需关注毛利稳定性</div>
-<div class="pi bad">🔴 Country Road、Pepco新客全年0进展，多元化进程远落后于计划</div>
-</div>
+<div style="font-size:12px;color:var(--fg2);line-height:1.85;background:var(--bg3);border-radius:8px;padding:14px 16px;margin-bottom:16px">
+  <div class="pi ok">✅ <strong>10月1,040万</strong>，O'Stin秋冬翻单出现，避免了9月248万后的持续低迷，验证了客户粘性</div>
+  <div class="pi ok">✅ 官方目标已超额完成，内部目标（1,200万$）还剩约35万$，11月可补量完成</div>
+  <div class="pi ok">✅ TVOE新客1–10月25.5万$，已超年初目标；LAMODA翻单稳定（35.8万$）</div>
+  <div class="pi warn">⚠ <strong>Country Road首单虽小已落地</strong>，童装打样在推进，需在11–12月确认第二单节点</div>
+  <div class="pi warn">⚠ O'Stin 2027年采购预算沟通须在11月前启动，这直接影响27年1,200万$目标的可达性</div>
 </div>
 </section>
 
-<!-- 07 CLIENT -->
+<!-- ══ 05 CLIENT ══ -->
 <section id="client">
-<div class="sh"><div class="sn">07 · CLIENT BREAKDOWN</div><div class="st">主要客户 1–8月创汇贡献（按高到低）</div></div>
-<div class="cw">
-<div class="ct">主要客户 1–8月累计创汇（万美元）</div>
-<div style="position:relative;height:320px"><canvas id="clientChart"></canvas></div>
+<div class="sh">
+  <div class="sn">05 · CLIENT PROGRESS</div>
+  <div class="st">主要客户 1–10月创汇进度（按贡献排序）</div>
 </div>
 
-<div class="tw"><table>
-<thead><tr><th>客户</th><th>部门</th><th>1–8月创汇（万$）</th><th>1–8月销售（万元）</th><th>vs 25年同期</th><th>全年目标（万$）</th><th>完成率</th><th>趋势判断</th></tr></thead>
-<tbody>
-<tr><td>Cotton On（Body+Top全系）</td><td>三部</td><td class="warn-c">1,190</td><td>8,350</td><td class="neg-c">−6.0%</td><td>1,720</td><td class="warn-c">69.2%</td><td class="warn-c">持续收窄，Top大幅萎缩</td></tr>
-<tr><td>O'Stin（全系列）</td><td>26部</td><td class="pos-c">906</td><td>6,322</td><td class="pos-c">+63.6%</td><td>990</td><td class="pos-c">91.5%</td><td class="pos-c">旺季兑现，已接近全年目标</td></tr>
-<tr><td>Cortefiel（Tendam）</td><td>四部</td><td class="pos-c">472</td><td>3,273</td><td class="pos-c">+64.6%</td><td>440</td><td class="pos-c">107.3% ✅</td><td class="pos-c">超额完成，欧元高位红利</td></tr>
-<tr><td>Big W</td><td>四部</td><td class="neg-c">416</td><td>2,874</td><td class="neg-c">−15.5%</td><td>550</td><td class="warn-c">75.6%</td><td class="neg-c">转单风险，利润率需管控</td></tr>
-<tr><td>Cotton on Men/Supre</td><td>31部</td><td class="warn-c">244</td><td>1,705</td><td class="neg-c">−26.2%</td><td>500</td><td class="neg-c">48.7%</td><td class="neg-c">持续萎缩，GSB分流</td></tr>
-<tr><td>Etam（Undiz+主品牌）</td><td>31部</td><td class="pos-c">254</td><td>1,776</td><td class="pos-c">↑大幅</td><td>250</td><td class="pos-c">101.5% ✅</td><td class="pos-c">超额完成，Q3秋冬续力</td></tr>
-<tr><td>Auchan（欧尚）</td><td>四部</td><td class="warn-c">213</td><td>1,486</td><td class="pos-c">+51.3%</td><td>180</td><td class="pos-c">118.6% ✅</td><td class="pos-c">超额，但利润率偏低</td></tr>
-<tr><td>Just Jean（JJ+Dotti）</td><td>三部</td><td class="pos-c">202</td><td>1,430</td><td class="pos-c">+90.3%</td><td>200</td><td class="pos-c">101.2% ✅</td><td class="pos-c">超额，三部第二增长极</td></tr>
-<tr><td>LAMODA</td><td>26部</td><td class="warn-c">29</td><td>200</td><td class="pos-c">+181%</td><td>20</td><td class="pos-c">144% ✅</td><td class="pos-c">超额，体量小但增长好</td></tr>
-<tr><td>NAR</td><td>31部</td><td class="warn-c">22</td><td>153</td><td class="pos-c">+79%</td><td>50</td><td class="warn-c">43.8%</td><td class="warn-c">小客人节奏性接单</td></tr>
-<tr><td>TVOE（新客）</td><td>26部</td><td class="warn-c">20</td><td>141</td><td>首单</td><td>50</td><td class="warn-c">40.6%</td><td class="warn-c">首单落地，需加速复购</td></tr>
-<tr><td>VER（新客）</td><td>四部</td><td class="warn-c">14</td><td>97</td><td>首单</td><td>—</td><td>—</td><td class="warn-c">新客首单，规模尚小</td></tr>
-</tbody></table></div>
+<div class="cw">
+  <div class="ct">主要客户 1–10月累计创汇（万美元）</div>
+  <div style="position:relative;height:300px"><canvas id="clientChart"></canvas></div>
+</div>
+
+<div class="tw">
+  <table>
+    <thead><tr><th>客户</th><th>部门</th><th>1–10月创汇（万$）</th><th>vs 去年同期</th><th>全年目标（万$）</th><th>完成率</th><th>11–12月预判</th></tr></thead>
+    <tbody>
+      <tr><td>Cotton On Body/Top</td><td>三部</td><td>1,281</td><td class="neg-c">−16.2%</td><td>1,720</td><td class="warn-c">74.5%</td><td class="warn-c">需439万$，难度高</td></tr>
+      <tr><td>O'Stin（全系列）</td><td>26部</td><td>1,104</td><td class="pos-c">+44.3%</td><td>990</td><td class="pos-c">✅111.5%</td><td class="pos-c">已超额，继续翻单</td></tr>
+      <tr><td>Cortefiel（Tendam）</td><td>四部</td><td>572</td><td class="pos-c">+51.2%</td><td>440</td><td class="pos-c">✅130.1%</td><td class="pos-c">SS27新赛季启动</td></tr>
+      <tr><td>Big W</td><td>四部</td><td>502</td><td class="neg-c">−8.8%</td><td>550</td><td class="warn-c">91.3%</td><td class="warn-c">SS27谈判关键期</td></tr>
+      <tr><td>Etam（全系列）</td><td>31部</td><td>316</td><td class="pos-c">+152%</td><td>250</td><td class="pos-c">✅126.6%</td><td class="pos-c">翻单+新款维持</td></tr>
+      <tr><td>COG Men/Supre</td><td>31部</td><td>303</td><td class="neg-c">−27.8%</td><td>500</td><td class="neg-c">60.7%</td><td class="neg-c">结构性萎缩，缺口大</td></tr>
+      <tr><td>Just Jean（JJ+Dotti）</td><td>三部</td><td>233</td><td class="pos-c">+96.1%</td><td>200</td><td class="pos-c">✅116.4%</td><td class="pos-c">已超额，持续稳定</td></tr>
+      <tr><td>Auchan（欧尚）</td><td>四部</td><td>217</td><td class="pos-c">+51.6%</td><td>180</td><td class="pos-c">✅120.3%</td><td class="pos-c">已超额</td></tr>
+      <tr><td>Meijer</td><td>四部</td><td>41.2</td><td class="pos-c">+137%</td><td>40</td><td class="pos-c">✅103.0%</td><td class="pos-c">已超额</td></tr>
+      <tr><td>LAMODA</td><td>26部</td><td>35.8</td><td class="pos-c">+248%</td><td>20</td><td class="pos-c">✅179%</td><td class="pos-c">翻单持续</td></tr>
+      <tr><td>TVOE（新客）</td><td>26部</td><td>25.5</td><td>首年</td><td>20</td><td class="pos-c">✅127%</td><td class="pos-c">第二单跟进</td></tr>
+      <tr><td>Sociedad</td><td>四部</td><td>51.1</td><td class="pos-c">+46.7%</td><td>—</td><td>—</td><td class="pos-c">稳定增长</td></tr>
+      <tr><td>NAR</td><td>31部</td><td>19.1</td><td>—</td><td>—</td><td>—</td><td class="warn-c">节奏性接单</td></tr>
+      <tr><td>VER（新客）</td><td>四部</td><td>14.0</td><td>首年</td><td>—</td><td>—</td><td class="warn-c">小客人持续跟进</td></tr>
+      <tr><td>Witchery</td><td>三部</td><td>0.7</td><td>首年</td><td>50</td><td class="neg-c">1.4%</td><td class="neg-c">全年基本无望</td></tr>
+    </tbody>
+  </table>
+</div>
 </section>
 
-<!-- 08 H2 PLAN -->
-<section id="h2">
-<div class="sh"><div class="sn">08 · H2 DEPLOYMENT</div><div class="st">下半年工作部署（9–12月）</div>
-<div class="sd">截至8月全楼完成77.5%，H2剩余缺口销售<em class="hi">8,193万元</em>、创汇<em class="hi">1,206万$</em>。四部（143万$）和26部（105万$）基本已锁定，<em class="warn">三部（577万$）和31部（381万$）是全年达标的关键变量</em>。9月是全楼最重要单月——31部、26部传统旺季高峰，三部Cotton On FLEECE秋冬接单窗口，决定全年成败。</div></div>
+<!-- ══ 06 Q4 PLAN ══ -->
+<section id="q4plan">
+<div class="sh">
+  <div class="sn">06 · NOV–DEC DEPLOYMENT</div>
+  <div class="st">11–12月工作部署</div>
+  <div class="sd">全楼11–12月最终冲刺窗口：<em class="hi">三部需完成455万$</em>（月均227万$），<em class="hi">31部需完成261万$</em>（月均130万$）。四部和26部已超额，<em class="pos">转入以27年布局为主的模式</em>。</div>
+</div>
+
+<div class="plan-grid">
+  <div class="pc">
+    <div class="pp">11月 · 三部</div>
+    <div class="pt" style="color:var(--c3)">FLEECE收尾 + 年底接单加速</div>
+    <div class="pi hi">Cotton On Body：年底基础款翻单是最重要来源，历史25年11月三部653万，今年目标不低于600万元</div>
+    <div class="pi ok">Just Jeans：新季度PPT推款，利用年底买手预算清仓窗口争取增量订单</div>
+    <div class="pi warn">BODY-SLEEP：AIRY新款式开发进度汇报，争取明年Q1提前锁单</div>
+    <div class="pi bad">Witchery：年度最终评估，11月底前明确是否继续列入2027年开发计划</div>
+  </div>
+  <div class="pc">
+    <div class="pp">11月 · 31部</div>
+    <div class="pt" style="color:var(--c31)">Etam续单 + COG年底冲量</div>
+    <div class="pi hi">Etam秋冬续单 + 年底清仓补款：25年11月31部560万，目标今年不低于500万元</div>
+    <div class="pi ok">SUPRE：推AW27新爆款面料，争取让客人在年底前提前确认新版型下单</div>
+    <div class="pi warn">COG Men/Supre：年底COG系列通常有少量翻单，争取最后窗口补量</div>
+    <div class="pi hi">正式启动Etam 2027年续单谈判，锁定核心产品线价格和数量框架</div>
+  </div>
+  <div class="pc">
+    <div class="pp">11月 · 四部+26部</div>
+    <div class="pt" style="color:var(--c4)">SS27启动 + 27年布局</div>
+    <div class="pi hi">四部：Big W SS27接单启动，要求报价前完成汇率测算，强制执行12%毛利底线，防止再次出现利润为负</div>
+    <div class="pi hi">四部：Cortefiel SS27开发导入，维持每季度西班牙拜访节奏；Country Road年度最终评估</div>
+    <div class="pi ok">26部：启动O'Stin 2027年采购预算正式沟通，争取女装预算恢复</div>
+    <div class="pi ok">26部：TVOE第二单跟进；Country Road童装/男装确认11–12月下单节点</div>
+  </div>
+</div>
+<div class="plan-grid" style="margin-top:0">
+  <div class="pc">
+    <div class="pp">12月 · 全楼</div>
+    <div class="pt" style="color:var(--gold)">全年收官 + 2027年计划</div>
+    <div class="pi hi">全力冲刺全年5,250万$目标，三部+31部是决定性变量，管理层持续跟进进度</div>
+    <div class="pi hi">完成2027年业务计划书（三部2,030/31部1,000/四部1,400/26部1,200，合计5,630万$）</div>
+    <div class="pi ok">年度供应链评估：越南河内工厂产能验证、柬埔寨工厂效益核查、安徽工厂产值优化</div>
+    <div class="pi ok">效益工资核算：对全年超额部门（四部+26部）兑现效益工资承诺，激励团队士气</div>
+  </div>
+  <div class="pc">
+    <div class="pp">利润修复专项</div>
+    <div class="pt" style="color:var(--neg)">四部：从"量"到"质"的转型</div>
+    <div class="pi bad">建立Big W+Auchan接单"利润率前置审核"机制：报价单必须附毛利率测算，低于12%不接单</div>
+    <div class="pi bad">Cortefiel SS27开发期间控制打样成本：合并相似款式打样，减少无效样衣数量</div>
+    <div class="pi warn">建议在12月月度例会中对1–12月利润率进行全年复盘，分析每个低毛利订单的根因</div>
+    <div class="pi ok">VER+Sociedad等欧洲小客人利润率相对稳定，11–12月积极扩量作为利润率结构改善的补充</div>
+  </div>
+  <div class="pc">
+    <div class="pp">毛利率三年总结</div>
+    <div class="pt" style="color:var(--warn)">结构性问题系统应对</div>
+    <div class="pi bad">三年毛利率变化：2024 ~18.4% → 2025 ~17.3% → 2026年前6月 14.91%，<strong>三年累计下降3.5ppt</strong></div>
+    <div class="pi warn">核心成因：商超客户（Big W+Auchan）价格持续下压；O'Stin 155天账期限制低成本工厂；Cotton On Body降价抵消成本上升</div>
+    <div class="pi ok">正向结构：Cortefiel（高毛利欧元客户）+Etam（高附加值法国客户）+Just Jean扩量，是27年利润率修复的主要路径</div>
+  </div>
+</div>
+</section>
+
+<!-- ══ 07 OUTLOOK ══ -->
+<section id="outlook">
+<div class="sh">
+  <div class="sn">07 · FULL-YEAR OUTLOOK</div>
+  <div class="st">全年完成情景预测 + 2027年目标路径</div>
+</div>
 
 <div class="kg4">
-<div class="kc c3"><div class="kl">三部 H2剩余（月均需）</div><div class="kv">577<span class="ku">万$</span></div><div class="kd neg">月均144万$（9–12月） vs 1–8月月均174万$</div><div class="ks">历史难度高 · FLEECE旺季是关键</div></div>
-<div class="kc c31"><div class="kl">31部 H2剩余（月均需）</div><div class="kv">381<span class="ku">万$</span></div><div class="kd warn">月均95万$（9–12月） vs 8月实绩123万$</div><div class="ks">8月破百万$已验证能力，关键是能否持续</div></div>
-<div class="kc c4"><div class="kl">四部 H2剩余</div><div class="kv">143<span class="ku">万$</span></div><div class="kd pos">月均36万$ · 基本已锁定</div><div class="ks">重点转向提升利润率和新客开发</div></div>
-<div class="kc c26"><div class="kl">26部 H2剩余</div><div class="kv">105<span class="ku">万$</span></div><div class="kd pos">月均26万$ · 已基本确定完成</div><div class="ks">重点在新客孵化和多元化布局</div></div>
+  <div class="kc c3"><div class="kl">三部 全年预测</div><div class="kv">~1,900<span class="ku">万$</span></div><div class="kd warn">需11–12月455万$，目标值左右（±5%）</div></div>
+  <div class="kc c31"><div class="kl">31部 全年预测</div><div class="kv">~900<span class="ku">万$</span></div><div class="kd pos">需261万$，历史验证月均130万$可达</div></div>
+  <div class="kc c4"><div class="kl">四部 全年预测</div><div class="kv">~1,450<span class="ku">万$</span></div><div class="kd pos">✅ 已超额，全年完成约110%</div></div>
+  <div class="kc c26"><div class="kl">26部 全年预测</div><div class="kv">~1,200<span class="ku">万$</span></div><div class="kd pos">✅ 已超额，内部目标有望完成</div></div>
 </div>
-
-<div class="h2-month-grid">
-<div class="hmc">
-<div class="hm-month">09月 · 全楼旺季峰值</div>
-<div class="hm-theme" style="color:var(--cx)">决战关键月</div>
-<div class="hm-item hi">三部：Cotton On Body FLEECE秋冬接单核心窗口，目标月销≥1,300万；越南四分厂+裕尚产能提前锁定</div>
-<div class="hm-item hi">31部：Etam秋冬系列主力执行期（25年9月717万为历史高峰），目标月销≥700万，创汇≥100万$</div>
-<div class="hm-item ok">26部：O'Stin旺季延续，监控补单机会；TVOE复购跟进</div>
-<div class="hm-item warn">四部：Cortefiel秋冬款执行，防止货期延误；Big W Q4订单提前确认</div>
-</div>
-<div class="hmc">
-<div class="hm-month">10月 · 历史断档防守</div>
-<div class="hm-theme" style="color:var(--warn)">主动防守月</div>
-<div class="hm-item bad">四部预警：25年10月仅258万（全年最低），系Cortefiel出货完毕后接单断档——需提前布局Auchan/Meijer Q4订单</div>
-<div class="hm-item warn">三部：FLEECE旺季接单后转执行，关注Cotton On Body快单机会；Witchery年度复盘决策</div>
-<div class="hm-item warn">31部：COG Men/Lady结构评估：若H2持续低迷，启动27年客户结构调整方案</div>
-<div class="hm-item ok">26部：O'Stin秋冬库存消化监控，LAMODA Q4订单确认</div>
-</div>
-<div class="hmc">
-<div class="hm-month">11月 · 冲刺与新客</div>
-<div class="hm-theme" style="color:var(--pos)">收官冲刺</div>
-<div class="hm-item hi">全楼：31部历史11月强势月（25年560万），三部继续Body/Sleep订单执行；全力冲刺全年目标</div>
-<div class="hm-item hi">四部：Country Road精品订单年内是否能落地的最后窗口，领导资源跟进</div>
-<div class="hm-item ok">26部：TVOE电商第二单年内落地（目标全年20万$）；与O'Stin启动27年采购预算沟通</div>
-<div class="hm-item warn">三部：Witchery首单若10月仍未启动，建议将50万$目标转移至其他潜力客人</div>
-</div>
-<div class="hmc">
-<div class="hm-month">12月 · 收官与27年布局</div>
-<div class="hm-theme" style="color:var(--gold)">收官启动</div>
-<div class="hm-item hi">全楼：完成2026年全年目标，确认效益工资兑现基础；启动2027年业务计划制定</div>
-<div class="hm-item hi">27年目标：三部2,030万$/31部1,150万$/四部1,810万$/26部1,440万$，合计6,430万$</div>
-<div class="hm-item ok">三部：越南河内新工厂产能验证（目标海外占比50%）；PLUSH FLEECE面料开发落地</div>
-<div class="hm-item ok">供应链：越南工厂矩阵评估（四部广西运动装、三部裕尚模式延续）；柬埔寨工厂效益核查</div>
-</div>
-</div>
-
-<div class="tw"><table>
-<thead><tr><th>部门</th><th>25年H2实绩（万$）</th><th>H2剩余缺口（官方）</th><th>vs 25年H2</th><th>月均需要（万$）</th><th>月均历史（万$）</th><th>关键支撑客户</th><th>难度评估</th></tr></thead>
-<tbody>
-<tr><td>三部</td><td>631</td><td class="warn-c">577</td><td class="pos-c">↓8.6%</td><td>144</td><td>174（1–8月均）</td><td>Cotton On Body FLEECE · Just Jeans Q4</td><td class="warn-c">⚠ 中高难度</td></tr>
-<tr><td>31部</td><td>374</td><td class="warn-c">381</td><td class="warn-c">+1.9%</td><td>95</td><td>65（1–8月均）</td><td>Etam秋冬 · Cotton on Supre Q3</td><td class="warn-c">⚠ 中等（8月已破百万验证）</td></tr>
-<tr><td>四部</td><td>516</td><td class="pos-c">143</td><td class="pos-c">↓72.3%</td><td>36</td><td>147（1–8月均）</td><td>Cortefiel收尾 · Big W Q4锁定</td><td class="pos-c">✅ 极低</td></tr>
-<tr><td>26部</td><td>417</td><td class="pos-c">105</td><td class="pos-c">↓74.8%</td><td>26</td><td>119（1–8月均）</td><td>O'Stin Q3延续 · TVOE第二单</td><td class="pos-c">✅ 极低</td></tr>
-<tr class="tr-total"><td>17楼合计</td><td>1,938</td><td>1,206</td><td class="pos-c">↓37.8%</td><td>302</td><td>506（1–8月均）</td><td>—</td><td class="warn-c">⚠ 三31是关键变量</td></tr>
-</tbody></table></div>
 
 <div class="cw">
-<div class="ct">全年目标完成路径预测（乐观/基准/保守 三情景）</div>
-<div style="position:relative;height:250px"><canvas id="scenarioChart"></canvas></div>
+  <div class="ct">全年创汇完成情景预测（万美元）</div>
+  <div style="position:relative;height:240px"><canvas id="scenChart"></canvas></div>
+</div>
+
+<div class="tw">
+  <table>
+    <thead><tr><th>情景</th><th>三部11–12月</th><th>31部11–12月</th><th>全楼全年</th><th>完成率</th><th>关键假设</th></tr></thead>
+    <tbody>
+      <tr><td>乐观</td><td class="pos-c">480万$</td><td class="pos-c">280万$</td><td class="pos-c">5,477万$</td><td class="pos-c">104.3%</td><td>三部Cotton On翻单超预期+31部Etam年底大单</td></tr>
+      <tr><td>基准</td><td class="warn-c">420万$</td><td class="warn-c">261万$</td><td class="warn-c">5,398万$</td><td class="warn-c">102.8%</td><td>按历史规律，三部月均210万，31部月均130万</td></tr>
+      <tr><td>保守</td><td class="neg-c">340万$</td><td class="neg-c">220万$</td><td class="neg-c">5,275万$</td><td class="warn-c">100.5%</td><td>三部11月接单受阻，Cotton On年底量下滑</td></tr>
+      <tr class="tr-total"><td>结论</td><td colspan="4">三种情景下全楼均<strong>超过5,250万$目标</strong>，全年完成基本可以确定。关键变量是完成率高低，乐观vs保守相差约200万$。</td><td class="pos-c">已锁定完成</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="background:var(--bg3);border:1px solid var(--ln2);border-radius:12px;padding:24px 28px;margin-top:24px">
+  <div style="font-family:'Noto Serif SC',serif;font-size:17px;font-weight:600;color:#fff;margin-bottom:14px">综合结论与工作导向</div>
+  <div style="font-size:13px;color:var(--fg2);line-height:2">
+    <p style="margin-bottom:10px">截至10月，<em class="pos">四部和26部已超额完成全年目标</em>，是本年度最大的正向成果。<em class="warn">全楼全年5,250万$目标的完成，取决于三部和31部在11–12月合计完成716万$</em>，历史数据显示两部11–12月合计可达700–760万$，基准情景下全年完成无悬念。</p>
+    <p style="margin-bottom:10px">利润层面，<em class="neg">四部利润率是2026年最突出的管理问题</em>——两度出现月度利润为负（4月、6月），1–6月累计利润率仅4.20%，根源在于Big W和Auchan的商超价格结构。H2重点不是"冲量"而是"守利"，11月SS27接单启动时必须执行12%毛利率底线。</p>
+    <p>2027年目标5,630万$，较今年提升7.2%。实现路径：Cortefiel扩量（目标600万$）+ Etam持续增长（目标350万$）+ O'Stin预算恢复 + 三部Cotton On Body稳住 + 新客（Country Road/Witchery/TVOE）贡献初步落地。<em class="hi">利润率修复是2027年的核心命题</em>，目标全楼毛利率恢复至16%以上。</p>
+  </div>
 </div>
 </section>
 
-<!-- 09 RISK -->
-<section id="risk">
-<div class="sh"><div class="sn">09 · RISKS & CONCLUSION</div><div class="st">综合风险评估与年度结论</div></div>
-<div class="rg">
-<div class="rc m"><div class="rtag">中风险</div><div class="rtit">三部Cotton On系统性萎缩</div><div class="rbody">1–8月Cotton On Body/Top合计同比−6.0%（1,190万$），Top品线−83.4%，Body−6.0%。H2 FLEECE接单是全年补量唯一机会（9–10月窗口），若Q3 Body旺季接单不及预期（月均需140万$以上），全年三部将出现300万$以上缺口。Just Jeans的强势（+90%）不足以完全弥补Cotton On的萎缩。</div></div>
-<div class="rc m"><div class="rtag">中风险</div><div class="rtit">31部进度落后 · 月均需大幅提升</div><div class="rbody">1–8月完成57.7%目标，H2月均需95万$，是H1月均（65万$）的1.46倍。但8月已达到123万$，证明能力存在——关键是能否在9–11月维持高水位。COG Men/Supre持续萎缩（同比−26.2%）是结构隐患，Etam系（254万$，已超全年目标）是最大正向变量。</div></div>
-<div class="rc h"><div class="rtag">高风险</div><div class="rtit">四部利润率结构性偏低</div><div class="rbody">1–5月累计毛利率13.54%、利润率5.84%，全楼最低。Big W同比−15.5%且已发生汇损，Auchan商超结构性低毛利。H2接单必须为Big W和Auchan设定最低毛利率门槛，并优先锁定Cortefiel/VER等高毛利订单。否则即使销售量达标，利润贡献将持续低于其他部门。</div></div>
-<div class="rc l"><div class="rtag">已控风险</div><div class="rtit">四部+26部全年目标已锁定</div><div class="rbody">四部1–8月完成89.2%，H2仅需143万$（月均36万$）；26部完成90.1%，H2仅需105万$（月均26万$）。两部门合计H2压力仅248万$，几乎可以确定全年完成官方目标，为全楼整体完成率提供了可靠的托底支撑。</div></div>
-<div class="rc i"><div class="rtag">机遇</div><div class="rtit">Cortefiel+Etam双线超额，可持续性待验证</div><div class="rbody">Cortefiel 1–8月已超全年目标（472万$/440万$目标），Etam 1–8月同样超额（254万$/250万$目标）。两线能否在Q4持续高水位，直接影响27年预算制定。Cortefiel西班牙拜访机会、Etam秋冬系列扩量机会，均需在11月前完成阶段性评估。</div></div>
-<div class="rc i"><div class="rtag">机遇</div><div class="rtit">新客首单落地，孵化体系初具雏形</div><div class="rbody">TVOE（26部，20.2万$）和VER（四部，14万$）两个新客户实现首单落地，是26年新客开发工作的重要突破口。TVOE电商基因（60%+电商）与26部O'Stin服装化经验高度互补；VER阿根廷市场有差异化竞争空间。H2加速这两个新客的复购节奏，是27年扩量的重要储备。</div></div>
 </div>
-
-<div class="conclusion">
-<h3>年度综合结论与工作导向</h3>
-<p><strong>整体判断：</strong>2026年H1以<em class="pos">+10.0%</em>同比增速顺利开局，1–8月累计同比<em class="pos">+20.2%</em>，全年完成率77.5%处于乐观区间。四部和26部的超预期表现（分别完成89.2%和90.1%）为全楼提供了坚实托底。</p>
-<p><strong>核心挑战：</strong><em class="warn">三部H2月均需完成144万$</em>（9–12月），主要依赖Cotton On Body FLEECE秋冬旺季；<em class="warn">31部H2月均需95万$</em>，8月已验证能力但能否持续是关键。这两条线的Q3表现将在10月底形成清晰判断——届时如出现系统性落后，需立即启动目标修订讨论。</p>
-<p><strong>利润预警：</strong>1–5月全楼利润率6.30%、毛利率15.09%，均低于25年同期。<em class="neg">四部毛利率13.54%为全楼最低</em>，Big W汇损问题已属历史事件，但结构性低毛利（Big W+Auchan商超占四部创汇52%）需要在H2接单策略中明确设定最低利润率门槛（建议不低于12%毛利率）。</p>
-<p><strong>27年方向：</strong>Cortefiel（超额107%）和Etam（超额101%）是26年最值得加大投入的两条高质量产品线；O'Stin/TVOE/LAMODA组合需在H2完成"量增质升"验证；Cotton On系（三部+31部）需正式评估体量上限和品类分布，避免继续被动依赖单一客户。全楼2027年目标6,430万美元，人均创汇需提升至<em class="hi">131万$/人</em>，需要今年H2确立高质量接单的方法论基础。</p>
-</div>
-</section>
-
-</div>
-<footer>宁波狮丹努进出口有限公司第一分公司 · 2026年H1全面分析与H2工作部署 · 数据截至2026年8月 · 含5月财务报表实拍数据 · 结合4月20日工作会议精神 · 内部管理决策参考</footer>
+<footer>宁波狮丹努进出口有限公司第一分公司 · 2026年6月月度分析 · 数据来源：6月财务报表实拍 + 维度总表0701（1–10月）· 内部管理决策参考</footer>
 
 <script>
 const G='rgba(255,255,255,0.05)',T='#4a5268';
-const C={c3:'#5b9fff',c31:'#2dd4aa',c4:'#fdb94a',c26:'#f06080',cx:'#b48fff',gold:'#c9a84c'};
-const base_opts={responsive:true,maintainAspectRatio:false};
-const xAxis={ticks:{color:T,font:{size:10}},grid:{color:G}};
-const yAxis={ticks:{color:T,font:{size:10}},grid:{color:G}};
+const C={c3:'#5b9fff',c31:'#2dd4aa',c4:'#fdb94a',c26:'#f06080',cx:'#b48fff',gold:'#c9a84c',neg:'#f06080',warn:'#fdb94a'};
 
-// 1. TREND CHART - 2025全年 + 2026年1-8月
-const m20=['25/1','25/2','25/3','25/4','25/5','25/6','25/7','25/8','25/9','25/10','25/11','25/12','26/1','26/2','26/3','26/4','26/5','26/6','26/7','26/8'];
-const d25c3=[2034,1059,615,2069,565,1641,681,907,1291,762,653,741];
-const d25c31=[314,321,161,515,336,192,650,423,717,656,560,267];
-const d25c4=[1052,1140,417,649,701,953,685,1283,1007,258,608,676];
-const d25c26=[1136,125,443,323,767,567,655,504,667,340,867,590];
-const d26c3=[2221,1365,417,889,865,1277,1353,1363];
-const d26c31=[411,339,212,523,337,538,410,864];
-const d26c4=[1135,1292,545,715,659,841,2094,878];
-const d26c26=[799,342,385,388,1721,1775,862,391];
-
-function mkLine(d25,d26,color){
-  return {
-    data:[...d25,...d26],
-    borderColor:color,
-    tension:0.3,
-    pointRadius:2.5,
-    fill:false,
-    borderWidth:1.8,
-    segment:{borderDash:function(ctx){return ctx.p0DataIndex>=11?[6,3]:[];}}
-  };
+// 1. TREND CHART
+const m22=['25/1','25/2','25/3','25/4','25/5','25/6','25/7','25/8','25/9','25/10','25/11','25/12',
+           '26/1','26/2','26/3','26/4','26/5','26/6','26/7','26/8','26/9','26/10'];
+const d25={c3:[2034,1059,615,2069,565,1641,681,907,1291,762,653,741],
+           c31:[314,321,161,515,336,192,650,423,717,656,560,267],
+           c4:[1052,1140,417,649,701,953,685,1283,1007,258,608,676],
+           c26:[1136,125,443,323,767,567,655,504,667,340,867,590]};
+const d26m={c3:[2221,1365,417,889,865,1221,1452,1497,569,107],
+            c31:[411,339,212,523,337,457,495,1064,468,152],
+            c4:[1135,1292,545,718,791,796,1895,1258,1048,168],
+            c26:[799,342,385,387,1721,1737,1060,389,248,1040]};
+function mkL(k,color){
+  return {label:k,data:[...d25[k],...d26m[k]],borderColor:color,tension:0.3,
+    pointRadius:2.5,fill:false,borderWidth:1.8,
+    segment:{borderDash:function(ctx){return ctx.p0DataIndex>=11?[6,3]:[];}}};
 }
-
 new Chart(document.getElementById('trendChart'),{
   type:'line',
-  data:{
-    labels:m20,
-    datasets:[
-      Object.assign(mkLine(d25c3,d26c3,C.c3),{label:'三部'}),
-      Object.assign(mkLine(d25c31,d26c31,C.c31),{label:'31部'}),
-      Object.assign(mkLine(d25c4,d26c4,C.c4),{label:'四部'}),
-      Object.assign(mkLine(d25c26,d26c26,C.c26),{label:'26部'})
-    ]
-  },
-  options:{
-    responsive:true,maintainAspectRatio:false,
-    plugins:{legend:{display:false}},
-    scales:{
-      x:{ticks:{color:T,font:{size:10},maxRotation:45,autoSkip:false},grid:{color:G}},
-      y:{ticks:{color:T,font:{size:10},callback:function(v){return v>=1000?(v/1000).toFixed(1)+'k':v;}},grid:{color:G}}
-    }
-  }
+  data:{labels:m22,datasets:[mkL('c3',C.c3),mkL('c31',C.c31),mkL('c4',C.c4),mkL('c26',C.c26)]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+    scales:{x:{ticks:{color:T,font:{size:9},maxRotation:45,autoSkip:false},grid:{color:G}},
+            y:{ticks:{color:T,font:{size:10},callback:function(v){return v>=1000?(v/1000).toFixed(1)+'k':v;}},grid:{color:G}}}}
 });
 
-// 2. MARGIN CHART - 4月/5月单月利润率
+// 2. MARGIN CHART (monthly profit rate 6-10月)
 new Chart(document.getElementById('marginChart'),{
   type:'bar',
   data:{
-    labels:['三部','31部','四部','26部','全楼'],
+    labels:['6月','7月（est）','8月（est）','9月（est）','10月（est）'],
     datasets:[
-      {label:'4月利润率',data:[5.83,6.57,1.37,5.94,4.72],backgroundColor:[C.c3+'88',C.c31+'88',C.c4+'88',C.c26+'88','rgba(180,143,255,0.5)'],borderRadius:4},
-      {label:'5月利润率',data:[7.13,6.90,5.85,7.40,6.97],backgroundColor:[C.c3+'cc',C.c31+'cc',C.c4+'cc',C.c26+'cc','rgba(180,143,255,0.8)'],borderRadius:4},
-      {label:'1-5月累计',data:[6.94,6.22,5.84,6.66,6.30],type:'line',borderColor:'rgba(255,255,255,0.5)',borderDash:[5,3],pointRadius:5,fill:false,borderWidth:2}
+      {label:'三部',data:[4.93,6.5,7.2,5.0,null],backgroundColor:C.c3+'88',borderRadius:3},
+      {label:'31部',data:[8.88,7.5,9.2,7.0,5.0],backgroundColor:C.c31+'88',borderRadius:3},
+      {label:'四部',data:[-1.69,5.5,4.8,3.5,null],backgroundColor:C.c4+'88',borderRadius:3},
+      {label:'26部',data:[6.43,6.0,5.5,4.5,6.5],backgroundColor:C.c26+'88',borderRadius:3},
     ]
   },
-  options:{
-    responsive:true,maintainAspectRatio:false,
+  options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{display:true,position:'top',labels:{color:T,font:{size:11},boxWidth:10,padding:10}}},
-    scales:{
-      x:{ticks:{color:T,font:{size:11}},grid:{color:G}},
-      y:{min:0,max:10,ticks:{color:T,font:{size:10},callback:function(v){return v+'%';}},grid:{color:G}}
-    }
-  }
+    scales:{x:{ticks:{color:T,font:{size:11}},grid:{color:G}},
+            y:{ticks:{color:T,font:{size:10},callback:function(v){return v+'%';}},grid:{color:G}}}}
 });
 
-// 3. PROFIT DONUT
-new Chart(document.getElementById('profitDonut'),{
-  type:'doughnut',
-  data:{
-    labels:['三部 393万','31部 111万','四部 235万','26部 244万'],
-    datasets:[{
-      data:[393,111,235,244],
-      backgroundColor:[C.c3,C.c31,C.c4,C.c26],
-      borderWidth:0,
-      hoverOffset:8
-    }]
-  },
-  options:{
-    responsive:true,maintainAspectRatio:false,
-    cutout:'64%',
-    plugins:{legend:{display:true,position:'right',labels:{color:T,font:{size:11},boxWidth:10,padding:12}}}
-  }
-});
-
-// 4. CLIENT HORIZONTAL BAR
+// 3. CLIENT CHART
 new Chart(document.getElementById('clientChart'),{
   type:'bar',
   data:{
-    labels:['Cotton On(Body/Top)','O\u0027Stin','Cortefiel','Big W','Etam','Cotton on(Men/Supre)','Auchan','Just Jean','LAMODA','NAR','TVOE','VER'],
+    labels:['Cotton On','O\'Stin','Cortefiel','Big W','Etam','COG Men/Supre','Just Jean','Auchan','Sociedad','Meijer','LAMODA','TVOE','NAR','VER','Witchery'],
     datasets:[{
-      label:'1-8月创汇（万$）',
-      data:[1190,906,472,416,254,244,213,202,29,22,20,14],
+      label:'1–10月创汇（万$）',
+      data:[1281,1104,572,502,316,303,233,217,51,41,36,26,19,14,0.7],
       backgroundColor:[
         C.c3+'cc',C.c26+'cc',C.c4+'cc',C.c4+'88',C.c31+'cc',C.c31+'88',
-        C.c4+'66',C.c3+'88','rgba(52,211,170,0.5)','rgba(52,211,170,0.5)',
-        'rgba(240,96,128,0.5)','rgba(253,185,74,0.5)'
+        C.c3+'88',C.c4+'66','rgba(180,143,255,0.6)','rgba(180,143,255,0.5)',
+        C.c26+'66',C.c26+'55','rgba(90,98,130,0.6)','rgba(90,98,130,0.5)','rgba(90,98,130,0.3)'
       ],
       borderRadius:4
     }]
   },
-  options:{
-    responsive:true,maintainAspectRatio:false,
-    indexAxis:'y',
+  options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
     plugins:{legend:{display:false}},
-    scales:{
-      x:{ticks:{color:T,font:{size:11},callback:function(v){return v+'万$';}},grid:{color:G}},
-      y:{ticks:{color:T,font:{size:11}},grid:{color:G}}
-    }
-  }
+    scales:{x:{ticks:{color:T,font:{size:11},callback:function(v){return v+'万$';}},grid:{color:G}},
+            y:{ticks:{color:T,font:{size:11}},grid:{color:G}}}}
 });
 
-// 5. SCENARIO CHART
-new Chart(document.getElementById('scenarioChart'),{
+// 4. SCENARIO CHART
+new Chart(document.getElementById('scenChart'),{
   type:'bar',
   data:{
-    labels:['三部','31部','四部','26部','17楼合计'],
+    labels:['三部','31部','四部','26部','全楼合计'],
     datasets:[
-      {label:'保守情景',data:[1873,829,1320,1060,5082],backgroundColor:'rgba(240,96,128,0.5)',borderRadius:3},
-      {label:'基准情景',data:[1970,900,1320,1060,5250],backgroundColor:'rgba(253,185,74,0.6)',borderRadius:3},
-      {label:'乐观情景',data:[2043,939,1320,1060,5362],backgroundColor:'rgba(45,212,170,0.6)',borderRadius:3},
-      {label:'全年官方目标',data:[1970,900,1320,1060,5250],type:'line',borderColor:'rgba(255,255,255,0.5)',borderDash:[6,3],pointRadius:6,fill:false,borderWidth:2}
+      {label:'1–10月已完成',data:[1515,639,1398,1165,4717],backgroundColor:[C.c3+'cc',C.c31+'cc',C.c4+'cc',C.c26+'cc','rgba(180,143,255,0.7)'],borderRadius:3},
+      {label:'11–12月乐观',data:[480,280,null,null,null],backgroundColor:[C.c3+'55',C.c31+'55','rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0)'],borderRadius:3},
+      {label:'11–12月基准',data:[420,261,null,null,null],backgroundColor:[C.c3+'33',C.c31+'33','rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0)'],borderRadius:3},
+      {label:'全年官方目标',data:[1970,900,1320,1060,5250],type:'line',borderColor:'rgba(255,255,255,0.4)',borderDash:[6,3],pointRadius:5,fill:false,borderWidth:2},
     ]
   },
-  options:{
-    responsive:true,maintainAspectRatio:false,
+  options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{display:true,position:'top',labels:{color:T,font:{size:11},boxWidth:10,padding:10}}},
-    scales:{
-      x:{ticks:{color:T,font:{size:11}},grid:{color:G}},
-      y:{ticks:{color:T,font:{size:10},callback:function(v){return v+'万$';}},grid:{color:G}}
-    }
-  }
+    scales:{x:{ticks:{color:T,font:{size:11}},grid:{color:G}},
+            y:{ticks:{color:T,font:{size:10},callback:function(v){return v+'万$';}},grid:{color:G}}}}
 });
 
-// NAV scroll highlight
+// NAV
 var secs=[].slice.call(document.querySelectorAll('section[id]'));
 var nls=[].slice.call(document.querySelectorAll('nav a'));
 secs.forEach(function(s){
   new IntersectionObserver(function(es){
-    if(es[0].isIntersecting){
-      nls.forEach(function(l){l.classList.remove('on');});
-      var l=document.querySelector('nav a[href="#'+s.id+'"]');
-      if(l) l.classList.add('on');
-    }
+    if(es[0].isIntersecting){nls.forEach(function(l){l.classList.remove('on');});
+    var l=document.querySelector('nav a[href="#'+s.id+'"]');if(l)l.classList.add('on');}
   },{threshold:0.18,rootMargin:'-80px 0px -60% 0px'}).observe(s);
 });
 </script>
